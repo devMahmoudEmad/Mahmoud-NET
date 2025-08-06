@@ -1,0 +1,22 @@
+.main-content {
+  width: 100%;
+}
+
+.footer {
+  background: var(--surface-color);
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
