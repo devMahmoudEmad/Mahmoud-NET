@@ -23,5 +23,5 @@ import { ContactComponent } from './components/contact/contact';
   styleUrls: ['./app.css']
 })
 export class AppComponent {
-  title = 'Mahmoud Emad Portfolio';
+  title = 'Mahmoud Emad - Full Stack .NET Developer';
 }

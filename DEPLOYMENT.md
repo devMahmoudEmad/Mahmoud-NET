@@ -3,6 +3,10 @@
 ## Live Portfolio
 Your portfolio will be available at: `https://devmahmoudemad.github.io/portfolio/`
 
+## Deployment Status
+✅ Repository connected to GitHub
+🔄 GitHub Pages deployment in progress...
+
 ## Deployment Process
 This portfolio uses GitHub Actions for automatic deployment to GitHub Pages.
 

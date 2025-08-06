@@ -38,17 +38,15 @@ export class HeroComponent implements OnInit {
     }, 100);
   }
 
-  scrollToProjects(): void {
-    const element = document.getElementById('projects');
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  scrollToContact(): void {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
   }
 }
