@@ -44,7 +44,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/portfolio/"
+              "baseHref": "/Mahmoud-NET/"
             },
             "development": {
               "optimization": false,
