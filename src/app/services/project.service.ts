@@ -22,7 +22,7 @@ export class ProjectService {
       title: 'Raqmiya E-Commerce with .NET Core Web Api and Angular',
       description: 'A comprehensive e-commerce platform built with .NET Core and Angular.My biggest contribution to this project was the development of the backend API using .NET Core, which involved designing RESTful endpoints for product management, user authentication, and order processing. I also implemented the database schema using Entity Framework and SQL Server, ensuring efficient data retrieval and storage.',
       technologies: ['.NET Core', 'Angular', 'SQL Server', 'Entity Framework', 'C#', 'TypeScript'],
-      githubUrl: 'https://github.com/devMahmoudEmad',
+      githubUrl: 'https://github.com/Algorithm-Archetict/Raqmiya',
       imageUrl: 'raqmiy.jpeg',
       featured: true,
       category: 'web'
