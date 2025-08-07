@@ -19,8 +19,8 @@ export class ProjectService {
   private projects: Project[] = [
     {
       id: 1,
-      title: 'Raqmiya E-Commerce Platform',
-      description: 'A comprehensive e-commerce platform built with .NET Core and Angular. Features include product catalog, shopping cart, user authentication, order management, and admin dashboard.',
+      title: 'Raqmiya E-Commerce with .NET Core Web Api and Angular',
+      description: 'A comprehensive e-commerce platform built with .NET Core and Angular.My biggest contribution to this project was the development of the backend API using .NET Core, which involved designing RESTful endpoints for product management, user authentication, and order processing. I also implemented the database schema using Entity Framework and SQL Server, ensuring efficient data retrieval and storage.',
       technologies: ['.NET Core', 'Angular', 'SQL Server', 'Entity Framework', 'C#', 'TypeScript'],
       githubUrl: 'https://github.com/devMahmoudEmad',
       imageUrl: 'raqmiy.jpeg',
@@ -29,33 +29,54 @@ export class ProjectService {
     },
     {
       id: 2,
-      title: 'Fruit Shop Management System',
-      description: 'A desktop application for managing a fruit shop inventory, sales tracking, and customer management. Built with modern .NET technologies.',
-      technologies: ['.NET', 'C#', 'WPF', 'SQL Server', 'Entity Framework'],
-      githubUrl: 'https://github.com/devMahmoudEmad',
-      imageUrl: 'fruit%20shop.png',
+      title: 'Raqmiya E-Commerce with .NET Core MVC',
+      description: 'An e-commerce web application built with ASP.NET Core MVC, featuring product management, user authentication, and a responsive design.',
+      technologies: ['ASP.NET Core MVC', 'C#', 'Entity Framework', 'SQL Server', 'Bootstrap'],
+      githubUrl: 'https://github.com/mido22mo/Raqmiya-ITI-MVC-Project',
       featured: true,
-      category: 'desktop'
-    },
-    {
+      category: 'api'
+    }, {
       id: 3,
       title: 'Angular Portfolio Website',
       description: 'This responsive portfolio website showcasing my development skills. Built with Angular, featuring modern design, dark/light theme toggle, and smooth animations.',
       technologies: ['Angular', 'TypeScript', 'CSS3', 'HTML5', 'Responsive Design'],
       githubUrl: 'https://github.com/devMahmoudEmad',
       liveUrl: '#',
+      imageUrl: 'portdolio.png',
       featured: false,
       category: 'web'
     },
     {
       id: 4,
-      title: 'Web API Development Projects',
-      description: 'Various RESTful API projects built with ASP.NET Core, implementing clean architecture, authentication, and comprehensive documentation.',
-      technologies: ['ASP.NET Core', 'WebAPI', 'JWT', 'Swagger', 'Entity Framework', 'LINQ'],
-      githubUrl: 'https://github.com/devMahmoudEmad',
+      title: 'E-Commerce Platform',
+      description: 'A fully functional e-commerce platform. It provides users with a seamless shopping experience, including product browsing, cart management,orders and users mangement.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap','sweetalert'],
+      githubUrl: 'https://github.com/devMahmoudEmad/E-Commerce-platform',
+      imageUrl: 'GreatShop.jpeg',
       featured: false,
-      category: 'api'
+      category: 'web'
+    },
+    {
+      id: 5,
+      title: 'Fruit Shop Management System',
+      description: 'A Web application for  a fruit shop inventory Built only with HTML, CSS',
+      technologies: ['HTML', 'CSS'],
+      githubUrl: 'https://github.com/devMahmoudEmad/fruits-shop',
+      liveUrl: 'https://devmahmoudemad.github.io/fruits-shop/',
+      imageUrl: 'fruit%20shop.png',
+      featured: false,
+      category: 'web'
+    },{
+      id: 6,
+      title: 'Cafe Management desktop Application',
+      description: 'C# Windows Forms application for managing a cafe, built with .NET 8.0 and Entity Framework Core for data access ',
+      technologies: ['C#', 'Windows Forms', '.NET 8.0', 'Entity Framework Core', 'SQL Server'],
+      githubUrl: 'https://github.com/devMahmoudEmad/Cafe-WinForms/tree/master',
+      featured: false,
+      category: 'desktop'
     }
+
+
   ];
 
   getProjects(): Project[] {
