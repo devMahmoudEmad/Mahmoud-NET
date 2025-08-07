@@ -34,7 +34,7 @@
 }
 
 .logo-text {
-  color: var(--text-primary);
+  color: black;
 }
 
 .logo-accent {
@@ -56,7 +56,7 @@
 }
 
 .nav-link {
-  color: var(--text-secondary);
+  color: black;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0;
