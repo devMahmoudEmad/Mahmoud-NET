@@ -1,32 +1,31 @@
 # 🚀 Portfolio Deployment Guide
 
 ## Live Portfolio
-Your portfolio will be available at: `https://devmahmoudemad.github.io/portfolio/`
+Your portfolio is published at `https://devmahmoudemad.github.io/Mahmoud-NET/`.
 
 ## Deployment Status
-✅ Repository connected to GitHub
-🔄 GitHub Pages deployment in progress...
+✅ Automatic GitHub Pages deploys run on every push to `master` (and can be triggered manually via the **Deploy Angular Portfolio to GitHub Pages** workflow).
 
 ## Deployment Process
-This portfolio uses GitHub Actions for automatic deployment to GitHub Pages.
+GitHub Actions builds and deploys to GitHub Pages.
 
-### What happens when you push to GitHub:
-1. **Build Process**: GitHub Actions automatically builds your Angular app
-2. **Optimization**: Code is minified and optimized for production
-3. **Deployment**: Built files are deployed to GitHub Pages
-4. **Live Update**: Your portfolio is automatically updated online
+### What happens when you push to GitHub
+1. **Build**: GitHub Actions installs dependencies and builds the Angular app with the production configuration.
+2. **Artifact**: The build output is uploaded as a Pages artifact.
+3. **Deploy**: GitHub Pages publishes from the artifact to the `gh-pages` branch/site.
+4. **Live**: The site updates automatically at the URL above.
 
-### Manual Commands (if needed):
+### Manual Commands (if needed)
 ```bash
 # Build for production
 npm run build
 
 # Preview production build locally
-npm run build && npx http-server dist/portfolio -p 4200
+npm run build && npx http-server dist/portfolio/browser -p 4200
 ```
 
 ### Important Files:
-- `.github/workflows/deploy.yml` - Automated deployment configuration
+- `.github/workflows/deploy.yml` - GitHub Actions deployment workflow
 - `angular.json` - Build configuration with proper base href
 - `public/` - Static assets (images, favicon)
 

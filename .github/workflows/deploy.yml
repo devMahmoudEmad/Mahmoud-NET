@@ -1,9 +1,9 @@
 name: Deploy Angular Portfolio to GitHub Pages
 
 on:
-  # Disabled automatic deployment - use manual deployment instead
-  # push:
-  #   branches: [master, main]
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 permissions:
