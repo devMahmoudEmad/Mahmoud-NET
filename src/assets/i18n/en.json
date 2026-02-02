@@ -1,0 +1,111 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "actions": {
+      "getInTouch": "Get In Touch",
+      "switchToLight": "Switch to Light Mode",
+      "switchToDark": "Switch to Dark Mode",
+      "switchToArabic": "Switch to Arabic",
+      "switchToEnglish": "Switch to English",
+      "openMenu": "Open navigation menu",
+      "closeMenu": "Close navigation menu"
+    }
+  },
+  "home": {
+    "name": "Mahmoud Emad",
+    "subtitle": "Full Stack .NET Developer",
+    "location": "📍 Cairo, Egypt",
+    "description": "Dedicated Full Stack .NET Developer skilled in building scalable solutions using C#, .NET Core, SQL, and modern front-end tools like Angular.",
+    "cta": {
+      "getInTouch": "Get In Touch",
+      "viewWork": "View My Work"
+    },
+    "avatarAlt": "Mahmoud Emad"
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Full stack developer using .NET",
+    "profile": "Full stack developer using .NET with a strong backend focus. I build clean, reliable APIs and data layers in C# and ASP.NET Core, and connect them to modern front ends when needed. I turn business workflows into working features with solid architecture, clean code, and attention to performance.",
+    "deliver": {
+      "title": "What I Deliver",
+      "item1": "Full-stack features: API + database + UI",
+      "item2": "Clean architecture, DTOs, and validation",
+      "item3": "Secure auth with JWT and role-based access",
+      "item4": "Reliable SQL Server data models and EF Core",
+      "item5": "Performance-minded, maintainable code"
+    }
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "categories": {
+      "programming": "Programming Languages",
+      "frameworks": "Frameworks & Libraries",
+      "desktop": "Desktop & UI",
+      "tools": "Tools & Databases",
+      "methodologies": "Methodologies"
+    },
+    "items": {
+      "agile": "Agile Development",
+      "oop": "Object-Oriented Programming",
+      "testingBasics": "Software Testing Basics",
+      "rdbms": "Relational Database Management"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A showcase of my development work and technical expertise",
+    "filters": {
+      "all": "All Projects",
+      "web": "Web Apps",
+      "api": "APIs",
+      "desktop": "Desktop",
+      "other": "Other"
+    },
+    "featured": "Featured",
+    "buttons": {
+      "github": "GitHub",
+      "liveDemo": "Live Demo"
+    },
+    "empty": {
+      "title": "No projects found",
+      "subtitle": "No projects match the selected category."
+    },
+    "more": {
+      "text": "More projects coming soon as I continue my development journey!",
+      "viewAll": "View All Repositories"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's connect! I'm always interested in discussing new opportunities, collaborations, or just having a chat about technology.",
+    "labels": {
+      "email": "Email",
+      "location": "Location",
+      "phone": "Phone"
+    },
+    "location": "El Shorouk City, Cairo, Egypt",
+    "social": {
+      "title": "Connect With Me",
+      "github": {
+        "title": "GitHub",
+        "text": "Check out my repositories"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "text": "Let's connect professionally"
+      }
+    },
+    "cta": {
+      "sendEmail": "Send Me an Email"
+    }
+  },
+  "footer": {
+    "text": "© 2025 Mahmoud Emad. Built with Angular and passion."
+  }
+}

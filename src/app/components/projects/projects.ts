@@ -5,8 +5,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  stagger,
+  query,
+} from '@angular/animations';
 import { ProjectService, Project } from '../../services/project.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-projects',
@@ -17,33 +26,45 @@ import { ProjectService, Project } from '../../services/project.service';
     MatIconModule,
     MatButtonModule,
     MatChipsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule,
   ],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css'],
   animations: [
     trigger('cardAnimation', [
       transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(50px)' }),
-          stagger(100, animate('0.6s ease-out', style({ opacity: 1, transform: 'translateY(0)' })))
-        ], { optional: true })
-      ])
-    ])
-  ]
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, transform: 'translateY(50px)' }),
+            stagger(
+              100,
+              animate(
+                '0.6s ease-out',
+                style({ opacity: 1, transform: 'translateY(0)' }),
+              ),
+            ),
+          ],
+          { optional: true },
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ProjectsComponent implements OnInit {
   private projectService = inject(ProjectService);
+  private languageService = inject(LanguageService);
   projects: Project[] = [];
   filteredProjects: Project[] = [];
   selectedCategory: string = 'all';
 
   categories = [
-    { value: 'all', label: 'All Projects' },
-    { value: 'web', label: 'Web Apps' },
-    { value: 'api', label: 'APIs' },
-    { value: 'desktop', label: 'Desktop' },
-    { value: 'other', label: 'Other' }
+    { value: 'all', labelKey: 'projects.filters.all' },
+    { value: 'web', labelKey: 'projects.filters.web' },
+    { value: 'api', labelKey: 'projects.filters.api' },
+    { value: 'desktop', labelKey: 'projects.filters.desktop' },
+    { value: 'other', labelKey: 'projects.filters.other' },
   ];
 
   ngOnInit(): void {
@@ -60,7 +81,9 @@ export class ProjectsComponent implements OnInit {
     if (category === 'all') {
       this.filteredProjects = this.projects;
     } else {
-      this.filteredProjects = this.projects.filter(project => project.category === category);
+      this.filteredProjects = this.projects.filter(
+        (project) => project.category === category,
+      );
     }
   }
 
@@ -79,5 +102,17 @@ export class ProjectsComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  getProjectTitle(project: Project): string {
+    return this.languageService.currentLang() === 'ar' && project.titleAr
+      ? project.titleAr
+      : project.title;
+  }
+
+  getProjectDescription(project: Project): string {
+    return this.languageService.currentLang() === 'ar' && project.descriptionAr
+      ? project.descriptionAr
+      : project.description;
   }
 }

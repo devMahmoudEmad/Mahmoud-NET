@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 export interface Project {
   id: number;
   title: string;
+  titleAr?: string;
   description: string;
+  descriptionAr?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -35,7 +37,8 @@ export class ProjectService {
       githubUrl: 'https://github.com/mido22mo/Raqmiya-ITI-MVC-Project',
       featured: true,
       category: 'api'
-    }, {
+    },
+     {
       id: 3,
       title: 'Angular Portfolio Website',
       description: 'This responsive portfolio website showcasing my development skills. Built with Angular, featuring modern design, dark/light theme toggle, and smooth animations.',
@@ -43,7 +46,8 @@ export class ProjectService {
       githubUrl: 'https://github.com/devMahmoudEmad',
       liveUrl: '#',
       imageUrl: 'portdolio.png',
-      featured: false,
+    
+      featured: true,
       category: 'web'
     },
     {
@@ -72,6 +76,15 @@ export class ProjectService {
       description: 'C# Windows Forms application for managing a cafe, built with .NET 8.0 and Entity Framework Core for data access ',
       technologies: ['C#', 'Windows Forms', '.NET 8.0', 'Entity Framework Core', 'SQL Server'],
       githubUrl: 'https://github.com/devMahmoudEmad/Cafe-WinForms/tree/master',
+      featured: false,
+      category: 'desktop'
+    },{
+      id: 7,
+      title: 'Repair Shop Management System Desktop Application',
+      titleAr: 'نظام إدارة ورشة صيانة الهواتف',
+      description: 'Independently designed and developed a desktop system to manage end-to-end operations of a mobile repair shop. Translated real business workflows into technical features including device intake, repair tracking, invoicing, user/role management, daily financial reports, and delivery confirmation. Took full ownership of requirements analysis, implementation, and iterative improvements based on user feedback. Technologies: C#, Avalonia UI, XAML, MVVM, Dapper, SQLite.',
+      descriptionAr: 'صممت وطوّرت بشكل مستقل نظام سطح مكتب لإدارة العمليات الشاملة لورشة صيانة الهواتف. قمت بتحويل سير العمل الحقيقي إلى خصائص تقنية تشمل استلام الأجهزة، تتبع الإصلاح، الفوترة، إدارة المستخدمين/الأدوار، التقارير المالية اليومية، وتأكيد التسليم. توليت تحليل المتطلبات والتنفيذ والتحسينات المتكررة بناءً على ملاحظات المستخدمين. التقنيات: C#، Avalonia UI، XAML، MVVM، Dapper، SQLite.',
+      technologies: ['C#', 'Avalonia UI', 'XAML', 'MVVM', 'Dapper', 'SQLite'],
       featured: false,
       category: 'desktop'
     }

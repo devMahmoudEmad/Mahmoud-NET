@@ -3,12 +3,25 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatTooltipModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+    TranslateModule,
+  ],
   templateUrl: './hero.html',
   styleUrls: ['./hero.css'],
   animations: [
@@ -16,17 +29,20 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('in', style({ opacity: 1, transform: 'translateY(0)' })),
       transition('void => *', [
         style({ opacity: 0, transform: 'translateY(50px)' }),
-        animate(800, style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
+        animate(800, style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
     ]),
     trigger('slideIn', [
       state('in', style({ opacity: 1, transform: 'translateX(0)' })),
       transition('void => *', [
         style({ opacity: 0, transform: 'translateX(-50px)' }),
-        animate('600ms 200ms ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
-      ])
-    ])
-  ]
+        animate(
+          '600ms 200ms ease-out',
+          style({ opacity: 1, transform: 'translateX(0)' }),
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HeroComponent implements OnInit {
   animationState = 'in';
@@ -45,7 +61,7 @@ export class HeroComponent implements OnInit {
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }

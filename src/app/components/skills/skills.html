@@ -1,10 +1,11 @@
 <section class="skills section">
   <div class="container">
-    <h2 class="section-title">Skills & Technologies</h2>
+    <h2 class="section-title">{{ "skills.title" | translate }}</h2>
     <div class="skills-content">
-
       <div class="skill-category">
-        <h3 class="category-title">Programming Languages</h3>
+        <h3 class="category-title">
+          {{ "skills.categories.programming" | translate }}
+        </h3>
         <div class="skills-grid">
           <div class="tech-badge">
             <span class="tech-icon">⚡</span>
@@ -34,13 +35,15 @@
       </div>
 
       <div class="skill-category">
-        <h3 class="category-title">Frameworks & Libraries</h3>
+        <h3 class="category-title">
+          {{ "skills.categories.frameworks" | translate }}
+        </h3>
         <div class="skills-grid">
           <div class="tech-badge">
             <span class="tech-icon">🔷</span>
             .NET Core
           </div>
-          <div class="tech-badge ">
+          <div class="tech-badge">
             <span class="tech-icon">🌐</span>
             ASP.NET MVC
           </div>
@@ -64,19 +67,69 @@
             <span class="tech-icon">🅰️</span>
             Angular
           </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🪪</span>
+            JWT Auth
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🧱</span>
+            Clean Architecture
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🏗️</span>
+            Layered Architecture
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🧾</span>
+            DTOs & Validation
+          </div>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3 class="category-title">Tools & Databases</h3>
+        <h3 class="category-title">
+          {{ "skills.categories.desktop" | translate }}
+        </h3>
+        <div class="skills-grid">
+          <div class="tech-badge">
+            <span class="tech-icon">🖥️</span>
+            Avalonia UI
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🧩</span>
+            XAML
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🧠</span>
+            MVVM
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🪟</span>
+            Windows Forms
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🗃️</span>
+            SQLite
+          </div>
+          <div class="tech-badge">
+            <span class="tech-icon">🔌</span>
+            Dapper
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3 class="category-title">
+          {{ "skills.categories.tools" | translate }}
+        </h3>
         <div class="skills-grid">
           <div class="tech-badge">
             <span class="tech-icon">💻</span>
-            WebStorm
+            Visual Studio
           </div>
           <div class="tech-badge">
             <span class="tech-icon">🛠️</span>
-            Rider
+            SSMS
           </div>
           <div class="tech-badge">
             <span class="tech-icon">🗄️</span>
@@ -98,27 +151,28 @@
       </div>
 
       <div class="skill-category">
-        <h3 class="category-title">Methodologies</h3>
+        <h3 class="category-title">
+          {{ "skills.categories.methodologies" | translate }}
+        </h3>
         <div class="skills-grid">
           <div class="tech-badge">
             <span class="tech-icon">🔄</span>
-            Agile Development
+            {{ "skills.items.agile" | translate }}
           </div>
           <div class="tech-badge">
             <span class="tech-icon">🏛️</span>
-            Object-Oriented Programming
+            {{ "skills.items.oop" | translate }}
           </div>
           <div class="tech-badge">
             <span class="tech-icon">🧪</span>
-            Software Testing Basics
+            {{ "skills.items.testingBasics" | translate }}
           </div>
           <div class="tech-badge">
             <span class="tech-icon">🗂️</span>
-            Relational Database Management
+            {{ "skills.items.rdbms" | translate }}
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

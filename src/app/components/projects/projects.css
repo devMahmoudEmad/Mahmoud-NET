@@ -1,7 +1,15 @@
 .projects {
   background:
-    radial-gradient(circle at 80% 20%, rgba(0, 180, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(81, 43, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 180, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(81, 43, 212, 0.08) 0%,
+      transparent 50%
+    ),
     var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -9,7 +17,7 @@
 }
 
 .projects::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +55,7 @@
 }
 
 .section-header h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -96,7 +104,7 @@
 }
 
 .filter-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -159,11 +167,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 500px;
+  min-height: 420px;
 }
 
 .project-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -195,7 +203,7 @@
 }
 
 .project-card.featured::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   left: -2px;
@@ -240,12 +248,20 @@
 }
 
 .project-placeholder::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
 }
 
 .project-icon {
@@ -304,6 +320,30 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+html[dir="rtl"] .project-content,
+html[dir="rtl"] .project-header,
+html[dir="rtl"] .project-description,
+html[dir="rtl"] .project-technologies {
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Enhanced Tech Stack - Fixed positioning */
@@ -416,9 +456,15 @@
   animation: slideInUp 0.6s ease-out;
 }
 
-.project-card:nth-child(2) { animation-delay: 0.1s; }
-.project-card:nth-child(3) { animation-delay: 0.2s; }
-.project-card:nth-child(4) { animation-delay: 0.3s; }
+.project-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.project-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.project-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
 
 /* Loading animation for projects */
 @keyframes projectFadeIn {
@@ -436,12 +482,24 @@
   animation: projectFadeIn 0.6s ease-out;
 }
 
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.project-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.project-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.project-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.project-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {

@@ -30,6 +30,7 @@
   justify-content: space-between;
   padding: 1rem 0;
   position: relative;
+  gap: 2rem;
 }
 
 /* Enhanced Logo */
@@ -42,6 +43,8 @@
   gap: 0.25rem;
   transition: all 0.3s ease;
   position: relative;
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 .logo-text {
@@ -59,7 +62,7 @@
 }
 
 .navbar-brand .logo::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -79,6 +82,8 @@
   align-items: center;
   gap: 2rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1;
+  justify-content: center;
 }
 
 .navbar-nav {
@@ -108,7 +113,7 @@
 }
 
 .nav-link::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -160,7 +165,7 @@
 }
 
 .theme-toggle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -191,6 +196,39 @@
   position: relative;
 }
 
+/* Language Toggle */
+.lang-toggle {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 12px;
+  height: 44px;
+  min-width: 52px;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+.lang-toggle img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.lang-toggle:hover {
+  border-color: transparent;
+  color: white;
+  background: var(--gradient-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.4);
+}
+
 /* Enhanced CTA Button */
 .btn-small {
   padding: 0.5rem 1rem;
@@ -219,7 +257,7 @@
 }
 
 .mobile-toggle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -376,7 +414,27 @@
 /* Focus states for accessibility */
 .nav-link:focus-visible,
 .theme-toggle:focus-visible,
+.lang-toggle:focus-visible,
 .mobile-toggle:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(81, 43, 212, 0.2);
+}
+
+.nav-link:focus-visible {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* RTL Support */
+html[dir="rtl"] .navbar-menu {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .navbar-nav {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .navbar-actions {
+  flex-direction: row-reverse;
 }

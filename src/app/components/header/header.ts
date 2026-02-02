@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ThemeService } from '../../services/theme.service';
+import { LanguageService } from '../../services/language.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +16,15 @@ import { ThemeService } from '../../services/theme.service';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule,
   ],
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrls: ['./header.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
+  public languageService = inject(LanguageService);
 
   isMenuOpen = false;
   isDarkMode = false;
@@ -49,6 +53,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.themeService.toggleTheme();
   }
 
+  toggleLanguage(): void {
+    this.languageService.toggleLang();
+  }
+
   scrollToSection(sectionId: string): void {
     this.isMenuOpen = false; // Close mobile menu when navigating
     const element = document.getElementById(sectionId);
@@ -57,7 +65,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }
