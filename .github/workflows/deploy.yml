@@ -2,7 +2,7 @@ name: Deploy Angular Portfolio to GitHub Pages
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [master, main]
   workflow_dispatch:
 
 permissions:
@@ -25,8 +25,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.18.0'
-          cache: 'npm'
+          node-version: "22.18.0"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/portfolio/browser'
+          path: "./dist/portfolio/browser"
 
   deploy:
     environment:
