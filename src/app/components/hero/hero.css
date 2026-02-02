@@ -32,7 +32,7 @@
     var(--bg-primary);
   position: relative;
   overflow: hidden;
-  padding-top: 80px; /* Account for fixed header */
+  padding: 40px 0 80px; /* Reduce top padding while keeping breathing room */
 }
 
 .hero::before {
@@ -305,7 +305,7 @@ html[dir="rtl"] .social-links {
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 70px;
+    padding: 48px 0 72px;
   }
 
   .hero-actions {

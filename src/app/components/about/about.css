@@ -17,7 +17,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 600;
-  margin: 0 0 20px 0;
+  margin: 0 0 28px 0;
   color: var(--text-primary);
 }
 
@@ -148,8 +148,8 @@ html[dir="rtl"] .about-description::first-letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin: -1rem auto 2.5rem auto;
+  gap: 1.25rem;
+  margin: 0 auto 2.5rem auto;
   max-width: 900px;
 }
 
