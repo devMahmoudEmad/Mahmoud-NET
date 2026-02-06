@@ -135,7 +135,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
   align-items: stretch;
 }
@@ -160,7 +160,10 @@
   cursor: pointer;
   text-align: center;
   min-height: 75px;
-  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
   line-height: 1.4;
 }
 

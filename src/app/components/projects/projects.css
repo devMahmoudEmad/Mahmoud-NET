@@ -286,6 +286,7 @@
   align-items: flex-start;
   margin-bottom: 1rem;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .project-title {
@@ -295,6 +296,8 @@
   margin: 0;
   line-height: 1.3;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .featured-badge {
@@ -307,7 +310,9 @@
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
   box-shadow: 0 2px 8px rgba(81, 43, 212, 0.3);
 }
 
@@ -320,6 +325,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 html[dir="rtl"] .project-content,
@@ -353,6 +359,25 @@ html[dir="rtl"] .project-technologies {
   gap: 1.25rem;
   margin-bottom: 1.5rem;
   flex-shrink: 0;
+  min-width: 0;
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 /* Project Links - Fixed positioning */

@@ -19,6 +19,8 @@
   --warning-color: #f59e0b;
   --error-color: #ef4444;
   --info-color: #3b82f6;
+  --font-base: "Cairo", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 
   /* Enhanced gradients */
   --gradient-primary: linear-gradient(
@@ -179,13 +181,7 @@ html[dir="rtl"] .whatsapp-float {
 body {
   margin: 0;
   padding: 0;
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--font-base);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition:
@@ -199,14 +195,7 @@ body {
 }
 
 html[dir="rtl"] body {
-  font-family:
-    "Cairo",
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--font-base);
   text-align: right;
 }
 
@@ -518,6 +507,11 @@ html[dir="rtl"] .section-title::after {
   font-weight: 500;
   color: var(--text-primary);
   margin: 0.25rem;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(8px);
   position: relative;
