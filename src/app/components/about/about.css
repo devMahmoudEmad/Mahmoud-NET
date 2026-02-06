@@ -83,6 +83,9 @@
   position: relative;
   width: 100%;
   text-align: center;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-text::before {
@@ -111,6 +114,9 @@
   position: relative;
   max-width: 900px;
   margin: 0 auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-description::first-letter {
@@ -169,6 +175,9 @@ html[dir="rtl"] .about-description::first-letter {
   color: var(--text-secondary);
   line-height: 1.9;
   margin: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-block h3,
@@ -191,6 +200,9 @@ html[dir="rtl"] .about-description::first-letter {
   line-height: 1.6;
   padding-inline-start: 1.25rem;
   position: relative;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-list li::before {
@@ -214,6 +226,9 @@ html[dir="rtl"] .about-description::first-letter {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 6px 24px var(--shadow-color);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-deliver {
@@ -224,6 +239,9 @@ html[dir="rtl"] .about-description::first-letter {
   border-radius: 16px;
   padding: 1.75rem;
   box-shadow: 0 6px 24px var(--shadow-color);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .about-deliver h3 {

@@ -76,6 +76,9 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-item::before {
@@ -123,6 +126,9 @@
   font-weight: 600;
   margin: 0 0 8px 0;
   color: var(--text-primary);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-details h4 {
@@ -130,6 +136,9 @@
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 0.5rem 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-details p {
@@ -137,12 +146,18 @@
   margin: 0;
   font-size: 1rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-details a {
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-details a:hover {
@@ -177,6 +192,9 @@ html[dir="rtl"] .contact-details {
     0 8px 32px var(--shadow-color),
     0 2px 8px rgba(0, 0, 0, 0.05);
   position: relative;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .contact-form::before {
