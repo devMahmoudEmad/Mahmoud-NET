@@ -61,6 +61,8 @@
 .skills-content {
   position: relative;
   z-index: 1;
+  display: grid;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.25rem;
