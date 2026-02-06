@@ -328,6 +328,35 @@
   overflow-wrap: anywhere;
 }
 
+.project-description.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.read-more-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: -0.5rem 0 1.5rem 0;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.read-more-btn:hover {
+  color: var(--accent-color);
+}
+
+html[dir="rtl"] .read-more-btn {
+  align-self: flex-end;
+}
+
 html[dir="rtl"] .project-content,
 html[dir="rtl"] .project-header,
 html[dir="rtl"] .project-description,

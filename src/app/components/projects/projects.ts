@@ -58,6 +58,7 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   filteredProjects: Project[] = [];
   selectedCategory: string = 'all';
+  expandedProjectIds = new Set<number>();
 
   categories = [
     { value: 'all', labelKey: 'projects.filters.all' },
@@ -114,5 +115,18 @@ export class ProjectsComponent implements OnInit {
     return this.languageService.currentLang() === 'ar' && project.descriptionAr
       ? project.descriptionAr
       : project.description;
+  }
+
+  isDescriptionExpanded(projectId: number): boolean {
+    return this.expandedProjectIds.has(projectId);
+  }
+
+  toggleDescription(projectId: number): void {
+    if (this.expandedProjectIds.has(projectId)) {
+      this.expandedProjectIds.delete(projectId);
+      return;
+    }
+
+    this.expandedProjectIds.add(projectId);
   }
 }

@@ -70,7 +70,9 @@
     "featured": "Featured",
     "buttons": {
       "github": "GitHub",
-      "liveDemo": "Live Demo"
+      "liveDemo": "Live Demo",
+      "readMore": "Read more",
+      "readLess": "Show less"
     },
     "empty": {
       "title": "No projects found",

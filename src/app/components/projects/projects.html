@@ -55,9 +55,24 @@
             </div>
           </div>
 
-          <p class="project-description">
+          <p
+            class="project-description"
+            [class.expanded]="isDescriptionExpanded(project.id)"
+          >
             {{ getProjectDescription(project) }}
           </p>
+
+          <button
+            type="button"
+            class="read-more-btn"
+            (click)="toggleDescription(project.id)"
+          >
+            {{
+              (isDescriptionExpanded(project.id)
+                ? "projects.buttons.readLess"
+                : "projects.buttons.readMore") | translate
+            }}
+          </button>
 
           <div class="project-technologies">
             <span *ngFor="let tech of project.technologies" class="tech-tag">

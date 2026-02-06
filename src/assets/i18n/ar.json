@@ -70,7 +70,9 @@
     "featured": "مميز",
     "buttons": {
       "github": "GitHub",
-      "liveDemo": "عرض حي"
+      "liveDemo": "عرض حي",
+      "readMore": "اقرأ المزيد",
+      "readLess": "إظهار أقل"
     },
     "empty": {
       "title": "لا توجد مشاريع",

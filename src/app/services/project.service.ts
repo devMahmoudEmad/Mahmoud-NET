@@ -87,6 +87,14 @@ export class ProjectService {
       technologies: ['C#', 'Avalonia UI', 'XAML', 'MVVM', 'Dapper', 'SQLite'],
       featured: false,
       category: 'desktop'
+    },
+    {
+      id: 8,
+      title: 'Movies API (Movies & Genres Management) – Personal Project',
+      description: 'Built a RESTful ASP.NET Core Web API for movies CRUD, details, and filtering by genre. Implemented service-based architecture with DI and AutoMapper (DTO to entity mapping). Added validation for poster uploads (type/size) via multipart/form-data endpoints.',
+      technologies: ['C#', 'ASP.NET Core Web API', 'EF Core', 'Multipart File Uploads'],
+      featured: false,
+      category: 'api'
     }
 
 
