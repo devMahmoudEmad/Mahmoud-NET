@@ -380,6 +380,10 @@ html[dir="rtl"] .contact-details {
     gap: 1rem;
   }
 
+  .contact-details {
+    width: 100%;
+  }
+
   .form-control {
     padding: 0.875rem 1rem;
   }

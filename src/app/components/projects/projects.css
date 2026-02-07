@@ -567,6 +567,18 @@ html[dir="rtl"] .project-technologies {
     padding: 0 1rem;
   }
 
+  .project-image {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
   .filter-tabs {
     padding: 0 1rem;
     gap: 0.5rem;
@@ -580,6 +592,10 @@ html[dir="rtl"] .project-technologies {
 
   .projects-grid {
     padding: 0 0.75rem;
+  }
+
+  .project-image {
+    height: 160px;
   }
 
   .filter-tabs {

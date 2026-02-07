@@ -308,7 +308,7 @@
 /* Mobile Menu Styles */
 .navbar-menu.active {
   position: fixed;
-  top: 100%;
+  top: 64px;
   left: 0;
   right: 0;
   background: var(--glass-bg);
@@ -318,6 +318,8 @@
   flex-direction: column;
   gap: 0;
   box-shadow: 0 8px 32px var(--shadow-color);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
 }
 
 .navbar-menu.active .navbar-nav {
@@ -344,6 +346,10 @@
 
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {
+  .navbar-menu.active {
+    top: 60px;
+    max-height: calc(100vh - 60px);
+  }
   .navbar {
     padding: 0 1rem;
   }

@@ -294,12 +294,6 @@
   }
 }
 
-@media (max-width: 900px) {
-  .skill-categories {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 768px) {
   .skills {
     padding: 4rem 0;
@@ -330,6 +324,10 @@
     padding: 3rem 0;
   }
 
+  .skills-content {
+    padding: 0 0.75rem;
+  }
+
   .skill-category {
     padding: 1.25rem;
   }
@@ -346,11 +344,11 @@
   .tech-badge {
     font-size: 0.875rem;
     padding: 0.875rem 0.5rem;
-    min-height: 65px;
+    min-height: 60px;
   }
 
   .tech-icon {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 }
 

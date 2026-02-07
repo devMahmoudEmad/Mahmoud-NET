@@ -450,6 +450,19 @@ html[dir="rtl"] .about-lead {
 }
 
 @media (max-width: 480px) {
+  .about-badge {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .about-lead {
+    font-size: 0.95rem;
+  }
+
+  .about-deliver {
+    padding: 1.25rem;
+  }
+
   .about-text {
     padding: 1.5rem;
   }
