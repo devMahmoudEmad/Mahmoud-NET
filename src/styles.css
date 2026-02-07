@@ -127,6 +127,22 @@
   font-weight: 600;
   letter-spacing: 0.2px;
   white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-4px);
+  overflow: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    max-width 0.2s ease;
+}
+
+.whatsapp-float:hover .whatsapp-label,
+.whatsapp-float:focus-visible .whatsapp-label,
+.whatsapp-float:focus .whatsapp-label {
+  opacity: 1;
+  max-width: 220px;
+  transform: translateX(0);
 }
 
 /* RTL Support for WhatsApp Button */
