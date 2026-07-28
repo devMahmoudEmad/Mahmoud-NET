@@ -28,52 +28,6 @@
 }
 
 /* Projects Section Styles */
-.projects-section {
-  padding: 80px 0;
-  background: var(--background-color, #fafafa);
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Section Header */
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: var(--text-primary, #333);
-  position: relative;
-}
-
-.section-header h2::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(45deg, #3f51b5, #2196f3);
-  border-radius: 2px;
-}
-
-.section-header p {
-  font-size: 1.1rem;
-  color: var(--text-secondary, #666);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
 /* Enhanced Filter Tabs */
 .filter-tabs {
   display: flex;
@@ -466,14 +420,6 @@ html[dir="rtl"] .project-technologies {
   color: var(--text-secondary);
 }
 
-.empty-state mat-icon {
-  font-size: 4rem;
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
 .empty-state h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -494,33 +440,6 @@ html[dir="rtl"] .project-technologies {
   font-style: italic;
 }
 
-/* Animations */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.project-card {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.project-card:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.project-card:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.project-card:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-/* Loading animation for projects */
 @keyframes projectFadeIn {
   from {
     opacity: 0;
@@ -536,23 +455,14 @@ html[dir="rtl"] .project-technologies {
   animation: projectFadeIn 0.6s ease-out;
 }
 
-.project-card:nth-child(1) {
+.project-card:nth-child(2) {
   animation-delay: 0.1s;
 }
-.project-card:nth-child(2) {
+.project-card:nth-child(3) {
   animation-delay: 0.2s;
 }
-.project-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
 .project-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.project-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.project-card:nth-child(6) {
-  animation-delay: 0.6s;
+  animation-delay: 0.3s;
 }
 
 /* Enhanced Responsive Design */

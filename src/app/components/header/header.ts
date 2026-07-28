@@ -7,6 +7,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ThemeService } from '../../services/theme.service';
 import { LanguageService } from '../../services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { scrollToSection } from '../../utils/scroll.utils';
 
 @Component({
   selector: 'app-header',
@@ -30,14 +31,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isDarkMode = false;
 
   constructor() {
-    // Use effect to reactively update isDarkMode from the theme service
     effect(() => {
       this.isDarkMode = this.themeService.isDarkMode();
     });
   }
 
   ngOnInit(): void {
-    // Add scroll listener for header styling
     window.addEventListener('scroll', this.onScroll.bind(this));
   }
 
@@ -57,27 +56,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.languageService.toggleLang();
   }
 
-  scrollToSection(sectionId: string): void {
-    this.isMenuOpen = false; // Close mobile menu when navigating
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80; // Adjust based on your header height
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth',
-      });
-    }
+  scrollTo(sectionId: string): void {
+    this.isMenuOpen = false;
+    scrollToSection(sectionId);
   }
 
   private onScroll(): void {
     const header = document.querySelector('.header');
     if (header) {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      header.classList.toggle('scrolled', window.scrollY > 50);
     }
   }
 }

@@ -1,10 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import {
   trigger,
   transition,
@@ -16,18 +11,15 @@ import {
 import { ProjectService, Project } from '../../services/project.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
+import { IconComponent } from '../shared/icon/icon';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatTooltipModule,
     TranslateModule,
+    IconComponent,
   ],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css'],
@@ -57,7 +49,7 @@ export class ProjectsComponent implements OnInit {
   private languageService = inject(LanguageService);
   projects: Project[] = [];
   filteredProjects: Project[] = [];
-  selectedCategory: string = 'all';
+  selectedCategory = 'all';
   expandedProjectIds = new Set<number>();
 
   categories = [
@@ -79,30 +71,14 @@ export class ProjectsComponent implements OnInit {
 
   filterByCategory(category: string): void {
     this.selectedCategory = category;
-    if (category === 'all') {
-      this.filteredProjects = this.projects;
-    } else {
-      this.filteredProjects = this.projects.filter(
-        (project) => project.category === category,
-      );
-    }
-  }
-
-  openLink(url?: string): void {
-    if (url) {
-      window.open(url, '_blank');
-    }
+    this.filteredProjects =
+      category === 'all'
+        ? this.projects
+        : this.projects.filter((project) => project.category === category);
   }
 
   getDefaultImage(): string {
     return 'assets/images/project-placeholder.jpg';
-  }
-
-  scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
   }
 
   getProjectTitle(project: Project): string {
@@ -124,9 +100,8 @@ export class ProjectsComponent implements OnInit {
   toggleDescription(projectId: number): void {
     if (this.expandedProjectIds.has(projectId)) {
       this.expandedProjectIds.delete(projectId);
-      return;
+    } else {
+      this.expandedProjectIds.add(projectId);
     }
-
-    this.expandedProjectIds.add(projectId);
   }
 }
