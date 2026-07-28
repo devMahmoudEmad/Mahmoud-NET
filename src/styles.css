@@ -80,132 +80,105 @@
 /* Floating WhatsApp Button */
 .whatsapp-float {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 24px;
+  bottom: 24px;
   height: 56px;
-  padding: 8px 18px 8px 10px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #3f6af8, #2f5be6);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border: none;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow:
-    0 16px 30px rgba(38, 72, 178, 0.35),
-    0 6px 18px rgba(47, 91, 230, 0.25);
+  gap: 0;
+  box-shadow: 0 8px 28px rgba(18, 140, 126, 0.35);
   z-index: 1100;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.25s ease;
   text-decoration: none;
-  animation: float-soft 4s ease-in-out infinite;
-  backdrop-filter: blur(10px);
-}
-
-.whatsapp-float::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 999px;
-  background: radial-gradient(
-    circle,
-    rgba(79, 113, 255, 0.2) 0%,
-    rgba(79, 113, 255, 0) 70%
-  );
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  z-index: -1;
+  animation: whatsapp-float 4s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .whatsapp-float:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 18px 34px rgba(38, 72, 178, 0.4),
-    0 8px 22px rgba(47, 91, 230, 0.35);
-  background: linear-gradient(135deg, #4a74ff, #3562f0);
-}
-
-.whatsapp-float:hover::after,
-.whatsapp-float:focus-visible::after {
-  opacity: 1;
+  box-shadow: 0 12px 36px rgba(18, 140, 126, 0.45);
 }
 
 .whatsapp-float:focus-visible {
-  outline: 2px solid #25d366;
+  outline: 2px solid var(--accent-color);
   outline-offset: 3px;
 }
 
 .whatsapp-icon {
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #37e57a, #1ebc5f);
+  background: radial-gradient(circle at 35% 35%, #3ee780, #1dbd5f);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 8px 16px rgba(18, 140, 76, 0.4),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .whatsapp-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: #fff;
 }
 
 .whatsapp-label {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.2px;
   white-space: nowrap;
   opacity: 0;
   max-width: 0;
-  transform: translateX(-4px);
   overflow: hidden;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    max-width 0.2s ease;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .whatsapp-float:hover .whatsapp-label,
 .whatsapp-float:focus-visible .whatsapp-label,
 .whatsapp-float:focus .whatsapp-label {
   opacity: 1;
-  max-width: 220px;
-  transform: translateX(0);
+  max-width: 160px;
+  padding: 0 18px 0 6px;
 }
 
-/* RTL Support for WhatsApp Button */
+/* RTL Support */
 html[dir="rtl"] .whatsapp-float {
   right: auto;
-  left: 20px;
-  flex-direction: row-reverse;
+  left: 24px;
+}
+
+html[dir="rtl"] .whatsapp-float:hover .whatsapp-label,
+html[dir="rtl"] .whatsapp-float:focus-visible .whatsapp-label,
+html[dir="rtl"] .whatsapp-float:focus .whatsapp-label {
+  padding: 0 6px 0 18px;
 }
 
 @media (max-width: 640px) {
   .whatsapp-float {
     right: 16px;
-    left: auto;
     bottom: 16px;
-    width: 56px;
-    height: 56px;
-    padding: 8px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    justify-content: center;
-    gap: 0;
+    box-shadow: 0 6px 20px rgba(18, 140, 126, 0.35);
+  }
+
+  .whatsapp-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   .whatsapp-label {
     display: none;
-  }
-
-  .whatsapp-icon {
-    width: 38px;
-    height: 38px;
   }
 
   html[dir="rtl"] .whatsapp-float {
@@ -214,14 +187,9 @@ html[dir="rtl"] .whatsapp-float {
   }
 }
 
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+@keyframes whatsapp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 /* Global Styles */
