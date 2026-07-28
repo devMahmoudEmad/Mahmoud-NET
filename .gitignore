@@ -38,7 +38,6 @@ testem.log
 /typings
 
 # Local environment secrets
-src/environments/environment.ts
 src/environments/environment.development.ts
 
 # System files
