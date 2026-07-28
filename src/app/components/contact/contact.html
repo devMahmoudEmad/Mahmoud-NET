@@ -1,179 +1,136 @@
 <section class="contact section">
   <div class="container">
     <h2 class="section-title">{{ "contact.title" | translate }}</h2>
-    <p class="section-subtitle">
-      {{ "contact.subtitle" | translate }}
-    </p>
+    <p class="section-subtitle">{{ "contact.subtitle" | translate }}</p>
 
-    <div class="contact-content">
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">
-            <app-icon name="email" [size]="24"></app-icon>
+    <div class="contact-grid">
+      <div class="contact-sidebar">
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <app-icon name="email" [size]="20"></app-icon>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">{{ "contact.labels.email" | translate }}</span>
+              <a class="ltr-text" dir="ltr" href="mailto:mahmoudemad7521@gmail.com">
+                mahmoudemad7521@gmail.com
+              </a>
+            </div>
           </div>
-          <div class="contact-details">
-            <h4>{{ "contact.labels.email" | translate }}</h4>
-            <a
-              class="ltr-text"
-              dir="ltr"
-              href="mailto:mahmoudemad7521@gmail.com"
-              >mahmoudemad7521@gmail.com</a
-            >
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <app-icon name="location" [size]="20"></app-icon>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">{{ "contact.labels.location" | translate }}</span>
+              <p>{{ "contact.location" | translate }}</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <app-icon name="phone" [size]="20"></app-icon>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">{{ "contact.labels.phone" | translate }}</span>
+              <a class="ltr-text" dir="ltr" href="https://wa.me/201012879570" target="_blank" rel="noopener">
+                +20 101 287 9570
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          <div class="contact-icon">
-            <app-icon name="location" [size]="24"></app-icon>
-          </div>
-          <div class="contact-details">
-            <h4>{{ "contact.labels.location" | translate }}</h4>
-            <p>{{ "contact.location" | translate }}</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon">
-            <app-icon name="phone" [size]="24"></app-icon>
-          </div>
-          <div class="contact-details">
-            <h4>{{ "contact.labels.phone" | translate }}</h4>
-            <a
-              class="ltr-text phone-link"
-              dir="ltr"
-              href="https://wa.me/201012879570"
-              target="_blank"
-              rel="noopener"
-            >
-              +20 101 287 9570
+        <div class="contact-sidebar-footer">
+          <p class="social-label">{{ "contact.social.title" | translate }}</p>
+          <div class="social-row">
+            <a href="https://github.com/devMahmoudEmad" class="social-icon-btn" target="_blank" rel="noopener" aria-label="GitHub">
+              <app-icon name="github" [size]="22"></app-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoud-emad-373970216/" class="social-icon-btn" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <app-icon name="linkedin" [size]="22"></app-icon>
             </a>
           </div>
         </div>
       </div>
 
-      <div class="contact-rail">
-        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
-          <div class="form-group">
-            <label for="contact-name">{{ "contact.form.name.label" | translate }}</label>
-            <input
-              id="contact-name"
-              class="form-control"
-              type="text"
-              formControlName="name"
-              [placeholder]="'contact.form.name.placeholder' | translate"
-              autocomplete="name"
-            />
-            <p class="field-error" *ngIf="nameControl.touched && nameControl.hasError('required')">
-              {{ "contact.form.name.required" | translate }}
-            </p>
-            <p class="field-error" *ngIf="nameControl.touched && nameControl.hasError('minlength')">
-              {{ "contact.form.name.minLength" | translate }}
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-email">{{ "contact.form.email.label" | translate }}</label>
-            <input
-              id="contact-email"
-              class="form-control"
-              type="email"
-              formControlName="email"
-              [placeholder]="'contact.form.email.placeholder' | translate"
-              autocomplete="email"
-            />
-            <p class="field-error" *ngIf="emailControl.touched && emailControl.hasError('required')">
-              {{ "contact.form.email.required" | translate }}
-            </p>
-            <p class="field-error" *ngIf="emailControl.touched && emailControl.hasError('email')">
-              {{ "contact.form.email.invalid" | translate }}
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-content">{{ "contact.form.content.label" | translate }}</label>
-            <textarea
-              id="contact-content"
-              class="form-control textarea"
-              rows="6"
-              formControlName="content"
-              [placeholder]="'contact.form.content.placeholder' | translate"
-            ></textarea>
-            <p class="field-error" *ngIf="contentControl.touched && contentControl.hasError('required')">
-              {{ "contact.form.content.required" | translate }}
-            </p>
-            <p class="field-error" *ngIf="contentControl.touched && contentControl.hasError('minlength')">
-              {{ "contact.form.content.minLength" | translate }}
-            </p>
-          </div>
-
-          <p
-            *ngIf="statusMessage"
-            class="form-status"
-            [class.success]="statusType === 'success'"
-            [class.error]="statusType === 'error'"
-            aria-live="polite"
-          >
-            {{ statusMessage | translate }}
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <input
+            id="contact-name"
+            class="form-input"
+            type="text"
+            formControlName="name"
+            [placeholder]="'contact.form.name.placeholder' | translate"
+            autocomplete="name"
+          />
+          <label for="contact-name" class="form-label">{{ "contact.form.name.label" | translate }}</label>
+          <p class="field-error" *ngIf="nameControl.touched && nameControl.hasError('required')">
+            {{ "contact.form.name.required" | translate }}
           </p>
-
-          <button
-            class="submit-btn"
-            type="submit"
-            [disabled]="isSending || contactForm.invalid"
-          >
-            {{
-              isSending
-                ? ('contact.form.sending' | translate)
-                : ('contact.form.submit' | translate)
-            }}
-          </button>
-        </form>
-
-        <div class="contact-social">
-          <h3>{{ "contact.social.title" | translate }}</h3>
-          <div class="social-links-large">
-            <a
-              href="https://github.com/devMahmoudEmad"
-              class="social-card github"
-              target="_blank"
-              rel="noopener"
-            >
-              <div class="social-icon">
-                <app-icon name="github" [size]="32"></app-icon>
-              </div>
-              <div class="social-info">
-                <h4>{{ "contact.social.github.title" | translate }}</h4>
-                <p>{{ "contact.social.github.text" | translate }}</p>
-              </div>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/mahmoud-emad-373970216/"
-              class="social-card linkedin"
-              target="_blank"
-              rel="noopener"
-            >
-              <div class="social-icon">
-                <app-icon name="linkedin" [size]="32"></app-icon>
-              </div>
-              <div class="social-info">
-                <h4>{{ "contact.social.linkedin.title" | translate }}</h4>
-                <p>{{ "contact.social.linkedin.text" | translate }}</p>
-              </div>
-            </a>
-          </div>
+          <p class="field-error" *ngIf="nameControl.touched && nameControl.hasError('minlength')">
+            {{ "contact.form.name.minLength" | translate }}
+          </p>
         </div>
-      </div>
-    </div>
 
-    <div class="contact-cta">
-      <a
-        href="mailto:mahmoudemad7521@gmail.com"
-        class="btn btn-primary btn-large"
-      >
-        {{ "contact.cta.sendEmail" | translate }}
-        <app-icon name="external" [size]="20"></app-icon>
-      </a>
+        <div class="form-group">
+          <input
+            id="contact-email"
+            class="form-input"
+            type="email"
+            formControlName="email"
+            [placeholder]="'contact.form.email.placeholder' | translate"
+            autocomplete="email"
+          />
+          <label for="contact-email" class="form-label">{{ "contact.form.email.label" | translate }}</label>
+          <p class="field-error" *ngIf="emailControl.touched && emailControl.hasError('required')">
+            {{ "contact.form.email.required" | translate }}
+          </p>
+          <p class="field-error" *ngIf="emailControl.touched && emailControl.hasError('email')">
+            {{ "contact.form.email.invalid" | translate }}
+          </p>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            id="contact-content"
+            class="form-input form-textarea"
+            rows="5"
+            formControlName="content"
+            [placeholder]="'contact.form.content.placeholder' | translate"
+          ></textarea>
+          <label for="contact-content" class="form-label">{{ "contact.form.content.label" | translate }}</label>
+          <p class="field-error" *ngIf="contentControl.touched && contentControl.hasError('required')">
+            {{ "contact.form.content.required" | translate }}
+          </p>
+          <p class="field-error" *ngIf="contentControl.touched && contentControl.hasError('minlength')">
+            {{ "contact.form.content.minLength" | translate }}
+          </p>
+        </div>
+
+        <p
+          *ngIf="statusMessage"
+          class="form-status"
+          [class.success]="statusType === 'success'"
+          [class.error]="statusType === 'error'"
+          aria-live="polite"
+        >
+          {{ statusMessage | translate }}
+        </p>
+
+        <button
+          class="submit-btn"
+          type="submit"
+          [disabled]="isSending || contactForm.invalid"
+        >
+          <span *ngIf="isSending" class="spinner"></span>
+          {{
+            isSending
+              ? ('contact.form.sending' | translate)
+              : ('contact.form.submit' | translate)
+          }}
+        </button>
+      </form>
     </div>
   </div>
 </section>
