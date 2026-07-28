@@ -53,11 +53,13 @@ export class ContactComponent {
     try {
       const { name, email, content } = this.contactForm.getRawValue();
 
+      const messageWithSender = `From: ${name} (${email})\n\n${content}`;
+
       await emailjs.send(this.emailConfig.serviceId, this.emailConfig.templateId, {
         from_name: name,
         from_email: email,
         reply_to: email,
-        message: content,
+        message: messageWithSender,
         to_name: this.emailConfig.recipientName,
       });
 
