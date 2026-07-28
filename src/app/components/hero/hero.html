@@ -2,23 +2,15 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="hero-title animate-fade-in-up">
-          {{ "home.name" | translate }}
-        </h1>
-        <h2 class="hero-subtitle animate-fade-in-up">
-          {{ "home.subtitle" | translate }}
-        </h2>
-        <p class="hero-location animate-fade-in-up">
-          {{ "home.location" | translate }}
-        </p>
-        <p class="hero-description animate-fade-in-up">
-          {{ "home.description" | translate }}
-        </p>
+        <p class="hero-badge">{{ "home.location" | translate }}</p>
+        <h1 class="hero-title">{{ "home.name" | translate }}</h1>
+        <h2 class="hero-subtitle">{{ "home.subtitle" | translate }}</h2>
+        <p class="hero-description">{{ "home.description" | translate }}</p>
 
-        <div class="hero-actions animate-fade-in-up">
-          <a href="mailto:mahmoudemad7521@gmail.com" class="btn btn-primary">{{
-            "home.cta.getInTouch" | translate
-          }}</a>
+        <div class="hero-actions">
+          <a href="mailto:mahmoudemad7521@gmail.com" class="btn btn-primary">
+            {{ "home.cta.getInTouch" | translate }}
+          </a>
           <a
             href="#projects"
             class="btn btn-outline"
@@ -28,39 +20,23 @@
           </a>
         </div>
 
-        <div class="hero-social animate-fade-in-up">
-          <div class="social-links">
-            <a
-              href="https://github.com/devMahmoudEmad"
-              class="social-link"
-              target="_blank"
-              rel="noopener"
-            >
-              <app-icon name="github" [size]="24"></app-icon>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mahmoud-emad-373970216/"
-              class="social-link"
-              target="_blank"
-              rel="noopener"
-            >
-              <app-icon name="linkedin" [size]="24"></app-icon>
-            </a>
-          </div>
-          <div class="contact-info">
-            <p class="hero-email ltr-text" dir="ltr">
-              mahmoudemad7521@gmail.com
-            </p>
-            <a
-              class="hero-phone ltr-text"
-              dir="ltr"
-              href="https://wa.me/201012879570"
-              target="_blank"
-              rel="noopener"
-            >
-              +20 101 287 9570
-            </a>
-          </div>
+        <div class="hero-social">
+          <a
+            href="https://github.com/devMahmoudEmad"
+            class="social-btn"
+            target="_blank" rel="noopener"
+            aria-label="GitHub"
+          >
+            <app-icon name="github" [size]="20"></app-icon>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mahmoud-emad-373970216/"
+            class="social-btn"
+            target="_blank" rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <app-icon name="linkedin" [size]="20"></app-icon>
+          </a>
         </div>
       </div>
 
@@ -70,6 +46,7 @@
             src="assets/mahmoud%20emad.jpeg"
             alt="{{ 'home.avatarAlt' | translate }}"
             class="avatar-image"
+            loading="eager"
             onerror="
               this.style.display = 'none';
               this.parentElement.classList.add('avatar-error');
