@@ -131,13 +131,13 @@
 .nav-link:hover {
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.3);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
 }
 
 .nav-link.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.3);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
 }
 
 /* Navbar Actions */
@@ -185,7 +185,7 @@
   border-color: transparent;
   color: white;
   transform: scale(1.1) rotate(180deg);
-  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.4);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.4);
 }
 
 .theme-toggle svg {
@@ -226,7 +226,7 @@
   color: white;
   background: var(--gradient-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.4);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.4);
 }
 
 /* Enhanced CTA Button */
@@ -279,7 +279,7 @@
   border-color: transparent;
   color: white;
   transform: scale(1.05);
-  box-shadow: 0 4px 16px rgba(81, 43, 212, 0.4);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.4);
 }
 
 .mobile-toggle span {
@@ -424,7 +424,7 @@
 .mobile-toggle:focus-visible {
   outline: 3px solid var(--primary-color);
   outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(81, 43, 212, 0.2);
+  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.2);
 }
 
 .nav-link:focus-visible {

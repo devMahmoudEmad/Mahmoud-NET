@@ -2,12 +2,12 @@
   background:
     radial-gradient(
       circle at 70% 20%,
-      rgba(81, 43, 212, 0.05) 0%,
+      rgba(var(--primary-rgb), 0.05) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 30% 80%,
-      rgba(0, 180, 255, 0.03) 0%,
+      rgba(var(--accent-rgb), 0.03) 0%,
       transparent 50%
     ),
     var(--bg-primary);
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><pattern id="waves" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20c10-10 30-10 40 0s30 10 40 0" fill="none" stroke="rgba(81,43,212,0.04)" stroke-width="1"/></pattern></defs><rect width="40" height="40" fill="url(%23waves)"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><pattern id="waves" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20c10-10 30-10 40 0s30 10 40 0" fill="none" stroke="rgba(94,129,172,0.04)" stroke-width="1"/></pattern></defs><rect width="40" height="40" fill="url(%23waves)"/></svg>');
   pointer-events: none;
 }
 
@@ -43,7 +43,7 @@
   color: white;
   font-weight: 700;
   letter-spacing: 0.3px;
-  box-shadow: 0 8px 24px rgba(81, 43, 212, 0.3);
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
   text-transform: none;
 }
 
