@@ -1,0 +1,187 @@
+<section class="architecture section">
+  <div class="container">
+    <h2 class="section-title">{{ "architecture.title" | translate }}</h2>
+    <p class="section-subtitle">{{ "architecture.subtitle" | translate }}</p>
+
+    <div class="arch-cards">
+      <!-- HIS Architecture -->
+      <div class="arch-card" [class.expanded]="activeSection === 'his'">
+        <button class="arch-card-header" (click)="setActive('his')">
+          <div class="arch-card-title">
+            <span class="arch-badge">HIS</span>
+            <span>{{ "architecture.his.title" | translate }}</span>
+          </div>
+          <span class="arch-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+
+        <div class="arch-card-body" *ngIf="activeSection === 'his'">
+          <p class="arch-description">{{ "architecture.his.description" | translate }}</p>
+
+          <!-- Diagram -->
+          <div class="arch-diagram his-diagram">
+            <div class="diagram-layer top">
+              <div class="layer-label">Users</div>
+              <div class="diagram-row">
+                <span class="diagram-node">Doctors</span>
+                <span class="diagram-node">Reception</span>
+                <span class="diagram-node">Lab</span>
+                <span class="diagram-node">Pharmacy</span>
+                <span class="diagram-node">Admin</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Presentation Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">Angular SPA</span>
+                <span class="diagram-node">ASP.NET Web Forms</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">API Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">ASP.NET Core REST APIs</span>
+              </div>
+              <div class="diagram-sub">
+                <span class="diagram-tag">JWT Auth</span>
+                <span class="diagram-tag">Middleware</span>
+                <span class="diagram-tag">Validation</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Business Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node">Workflow Services</span>
+              </div>
+              <div class="diagram-sub">
+                <span class="diagram-tag">Appointments</span>
+                <span class="diagram-tag">Billing</span>
+                <span class="diagram-tag">Insurance</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Repository Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node">Repository Pattern</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Data Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">Entity Framework Core</span>
+              </div>
+              <div class="diagram-sub">
+                <span class="diagram-tag">SQL Server</span>
+                <span class="diagram-tag">Stored Procedures</span>
+                <span class="diagram-tag">Views</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer bottom">
+              <div class="diagram-row">
+                <span class="diagram-node highlight">SignalR Notification Hub</span>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="arch-section-title">{{ "architecture.his.layersTitle" | translate }}</h4>
+          <ul class="arch-list">
+            <li *ngFor="let layer of getHisLayers()">{{ layer }}</li>
+          </ul>
+
+          <h4 class="arch-section-title">{{ "architecture.his.featuresTitle" | translate }}</h4>
+          <ul class="arch-list">
+            <li *ngFor="let feature of getHisFeatures()">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Repair Shop Architecture -->
+      <div class="arch-card" [class.expanded]="activeSection === 'repairShop'">
+        <button class="arch-card-header" (click)="setActive('repairShop')">
+          <div class="arch-card-title">
+            <span class="arch-badge accent">Desktop</span>
+            <span>{{ "architecture.repairShop.title" | translate }}</span>
+          </div>
+          <span class="arch-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+
+        <div class="arch-card-body" *ngIf="activeSection === 'repairShop'">
+          <p class="arch-description">{{ "architecture.repairShop.description" | translate }}</p>
+
+          <!-- Desktop Diagram -->
+          <div class="arch-diagram desktop-diagram">
+            <div class="diagram-layer top">
+              <div class="layer-label">Users</div>
+              <div class="diagram-row">
+                <span class="diagram-node">Repair Shop Employees</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Presentation Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">Avalonia UI (XAML)</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">ViewModel Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node">MVVM ViewModels</span>
+              </div>
+              <div class="diagram-sub">
+                <span class="diagram-tag">ObservableObject</span>
+                <span class="diagram-tag">RelayCommand</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Business Services</div>
+              <div class="diagram-row">
+                <span class="diagram-node">Domain Logic</span>
+              </div>
+              <div class="diagram-sub">
+                <span class="diagram-tag">Customers</span>
+                <span class="diagram-tag">Repairs</span>
+                <span class="diagram-tag">Inventory</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer">
+              <div class="layer-label">Data Access Layer</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">Dapper ORM</span>
+              </div>
+            </div>
+            <div class="diagram-arrow">&#8595;</div>
+            <div class="diagram-layer bottom">
+              <div class="layer-label">Database</div>
+              <div class="diagram-row">
+                <span class="diagram-node highlight">SQLite</span>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="arch-section-title">{{ "architecture.repairShop.layersTitle" | translate }}</h4>
+          <ul class="arch-list">
+            <li *ngFor="let layer of getRepairShopLayers()">{{ layer }}</li>
+          </ul>
+
+          <h4 class="arch-section-title">{{ "architecture.repairShop.featuresTitle" | translate }}</h4>
+          <ul class="arch-list">
+            <li *ngFor="let feature of getRepairShopFeatures()">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

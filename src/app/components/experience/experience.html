@@ -1,0 +1,22 @@
+<section class="experience section">
+  <div class="container">
+    <h2 class="section-title">{{ "experience.title" | translate }}</h2>
+    <p class="section-subtitle">{{ "experience.subtitle" | translate }}</p>
+
+    <div class="experience-card">
+      <div class="experience-header">
+        <div class="experience-meta">
+          <span class="experience-role">{{ "experience.role" | translate }}</span>
+          <span class="experience-company">{{ "experience.company" | translate }}</span>
+        </div>
+      </div>
+
+      <p class="experience-description">{{ "experience.description" | translate }}</p>
+
+      <h3 class="highlights-title">{{ "experience.highlightsTitle" | translate }}</h3>
+      <ul class="experience-list">
+        <li *ngFor="let highlight of getHighlights()">{{ highlight }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

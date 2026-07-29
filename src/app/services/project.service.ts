@@ -10,6 +10,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
+  caseStudyId?: string;
   featured: boolean;
   category: 'web' | 'api' | 'desktop' | 'other';
 }
@@ -19,106 +20,105 @@ export interface Project {
 })
 export class ProjectService {
   private projects: Project[] = [
+    // ═══════════════════════════════════
+    // FEATURED PROJECTS
+    // ═══════════════════════════════════
     {
       id: 1,
-      title: 'Raqmiya E-Commerce with .NET Core Web Api and Angular',
-      titleAr:
-        'رقمية للتجارة الإلكترونية باستخدام ‎.NET Core Web API‎ وAngular',
+      title: 'Hospital Information System (HIS)',
+      titleAr: 'نظام معلومات المستشفيات',
       description:
-        'A comprehensive e-commerce platform built with .NET Core and Angular.My biggest contribution to this project was the development of the backend API using .NET Core, which involved designing RESTful endpoints for product management, user authentication, and order processing. I also implemented the database schema using Entity Framework and SQL Server, ensuring efficient data retrieval and storage.',
+        'Enterprise Hospital Information System serving 15+ clinical and administrative modules including Patient Management, Appointment Scheduling, Electronic Medical Records, Laboratory, Radiology, Pharmacy, Billing, Insurance, Inventory, and Reporting. I contributed across the full stack — developing and maintaining REST APIs, designing SQL Server database schemas, implementing JWT authentication and role-based access, integrating SignalR for real-time notifications, and refactoring legacy code for maintainability. The backend follows a layered architecture with Repository Pattern, Dependency Injection, and centralized middleware for auth, validation, logging, and exception handling.',
       descriptionAr:
-        'منصة تجارة إلكترونية شاملة مبنية باستخدام ‎.NET Core‎ وAngular. أكبر مساهمة لي كانت تطوير واجهة برمجة الخلفية بـ ‎.NET Core‎، مع تصميم نقاط نهاية REST لإدارة المنتجات، التوثيق، ومعالجة الطلبات. كما أنشأت مخطط قاعدة البيانات باستخدام Entity Framework وSQL Server لضمان كفاءة التخزين والاستعلام.',
+        'نظام معلومات مستشفيات مؤسسي يخدم 15+ وحدة سريرية وإدارية تشمل إدارة المرضى، جدولة المواعيد، السجلات الطبية الإلكترونية، المختبر، الأشعة، الصيدلية، الفواتير، التأمين، المخزون، والتقارير. ساهمت في كامل الطيف التقني — تطوير وصيانة واجهات REST API، تصميم قواعد بيانات SQL Server، تطبيق مصادقة JWT والتحكم بالوصول، دمج SignalR للإشعارات الفورية، وإعادة هيكلة الكود القديم. الخلفية تتبع معمارية متعددة الطبقات مع Repository Pattern وحقن التبعيات و Middleware مركزي.',
       technologies: [
-        '.NET Core',
-        'Angular',
-        'SQL Server',
-        'Entity Framework',
+        'ASP.NET Core',
         'C#',
-        'TypeScript',
+        'SQL Server',
+        'Entity Framework Core',
+        'JWT',
+        'ASP.NET Identity',
+        'SignalR',
+        'Angular',
+        'REST API',
+        'Layered Architecture',
       ],
-      githubUrl: 'https://github.com/Algorithm-Archetict/Raqmiya',
-      imageUrl: 'raqmiy.jpeg',
       featured: true,
       category: 'web',
     },
     {
       id: 2,
-      title: 'Raqmiya E-Commerce with .NET Core MVC',
-      titleAr: 'رقمية للتجارة الإلكترونية باستخدام ‎.NET Core MVC‎',
+      title: 'Repair Shop Management System',
+      titleAr: 'نظام إدارة ورشة الصيانة',
       description:
-        'An e-commerce web application built with ASP.NET Core MVC, featuring product management, user authentication, and a responsive design.',
+        'Independently designed and developed a cross-platform desktop application managing the complete lifecycle of a mobile repair shop — device intake, diagnostics tracking, repair workflow, inventory management, invoicing, daily financial reports, and delivery confirmation. Built with Avalonia UI following the MVVM pattern. Used Dapper with SQLite for lightweight, high-performance data access. Took full ownership of requirements analysis, architecture decisions, implementation, and iterative improvements based on real user feedback.',
       descriptionAr:
-        'تطبيق ويب للتجارة الإلكترونية مبني باستخدام ‎ASP.NET Core MVC‎، يتضمن إدارة المنتجات، توثيق المستخدمين، وتصميمًا متجاوبًا.',
+        'صممت وطوّرت بشكل مستقل تطبيق سطح مكتب عبر المنصات يدير دورة حياة ورشة إصلاح الهواتف بالكامل — استلام الأجهزة، تتبع التشخيص، سير عمل الإصلاح، إدارة المخزون، الفواتير، التقارير المالية اليومية، وتأكيد التسليم. بُني باستخدام Avalonia UI باتباع نمط MVVM. استخدمت Dapper مع SQLite للوصول خفيف الوزن وعالي الأداء. توليت تحليل المتطلبات وقرارات التصميم والتنفيذ والتحسينات بناءً على ملاحظات المستخدمين الحقيقية.',
       technologies: [
-        'ASP.NET Core MVC',
         'C#',
-        'Entity Framework',
-        'SQL Server',
-        'Bootstrap',
+        'Avalonia UI',
+        'XAML',
+        'MVVM',
+        'Dapper',
+        'SQLite',
       ],
-      githubUrl: 'https://github.com/mido22mo/Raqmiya-ITI-MVC-Project',
+      githubUrl: 'https://github.com/devMahmoudEmad/Repair-Shop-Management-System',
       featured: true,
-      category: 'api',
+      category: 'desktop',
     },
     {
       id: 3,
-      title: 'Angular Portfolio Website',
-      titleAr: 'موقع معرض أعمال باستخدام Angular',
+      title: 'Raqmiya E-Commerce — .NET Core Web API + Angular',
+      titleAr: 'رقمية للتجارة الإلكترونية — .NET Core Web API وAngular',
       description:
-        'This responsive portfolio website showcasing my development skills. Built with Angular, featuring modern design, dark/light theme toggle, and smooth animations.',
+        'Full-stack e-commerce platform with a .NET Core Web API backend and Angular frontend. My primary contribution was designing and building the backend API — RESTful endpoints for product management, user authentication, order processing, and payment workflows. Implemented database schema with Entity Framework Core and SQL Server, ensuring normalized relationships and efficient query performance. The backend follows clean architecture principles with service layer separation and DTO validation.',
       descriptionAr:
-        'موقع بورتفوليو متجاوب لعرض مهاراتي التطويرية. مبني باستخدام Angular ويضم تصميمًا حديثًا، تبديل الوضع الفاتح/الداكن، وحركات سلسة.',
+        'منصة تجارة إلكترونية متكاملة مع خلفية .NET Core Web API وواجهة Angular. مساهمتي الرئيسية كانت تصميم وبناء API الخلفية — نقاط نهاية RESTful لإدارة المنتجات، توثيق المستخدمين، معالجة الطلبات، ومدفوعات. طبقت مخطط قاعدة البيانات باستخدام Entity Framework Core وSQL Server مع علاقات طبيعية وأداء استعلامات فعال. الخلفية تتبع مبادئ Clean Architecture مع طبقة خدمات منفصلة والتحقق من DTO.',
       technologies: [
+        '.NET Core',
         'Angular',
+        'SQL Server',
+        'Entity Framework Core',
+        'C#',
         'TypeScript',
-        'CSS3',
-        'HTML5',
-        'Responsive Design',
+        'REST API',
       ],
-      githubUrl: 'https://github.com/devMahmoudEmad',
-      liveUrl: '#',
-      imageUrl: 'portdolio.png',
-
+      githubUrl: 'https://github.com/Algorithm-Archetict/Raqmiya',
+      imageUrl: 'raqmiy.jpeg',
+      caseStudyId: 'his',
       featured: true,
       category: 'web',
     },
+    // ═══════════════════════════════════
+    // OTHER PROJECTS
+    // ═══════════════════════════════════
     {
       id: 4,
-      title: 'E-Commerce Platform',
-      titleAr: 'منصة تجارة إلكترونية',
+      title: 'Movies API — ASP.NET Core Web API',
+      titleAr: 'واجهة أفلام API — ASP.NET Core Web API',
       description:
-        'A fully functional e-commerce platform. It provides users with a seamless shopping experience, including product browsing, cart management,orders and users mangement.',
+        'RESTful API for managing movies and genres with full CRUD operations, filtering by genre, and multipart file upload for posters. Built with ASP.NET Core Web API using service-based architecture, dependency injection, AutoMapper for DTO-to-entity mapping, and validation for file type and size constraints.',
       descriptionAr:
-        'منصة تجارة إلكترونية كاملة توفر تجربة تسوق سلسة، تشمل تصفح المنتجات، إدارة السلة، وإدارة الطلبات والمستخدمين.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'sweetalert'],
-      githubUrl: 'https://github.com/devMahmoudEmad/E-Commerce-platform',
-      imageUrl: 'GreatShop.jpeg',
+        'واجهة RESTful لإدارة الأفلام والأنواع مع عمليات CRUD كاملة، تصفية حسب النوع، ورفع ملفات للملصقات. بُنيت باستخدام ASP.NET Core Web API بمعمارية قائمة على الخدمات، حقن التبعيات، AutoMapper للتحويل بين DTO والكيانات، والتحقق من نوع وحجم الملفات.',
+      technologies: [
+        'C#',
+        'ASP.NET Core Web API',
+        'EF Core',
+        'AutoMapper',
+        'REST API',
+      ],
+      githubUrl: 'https://github.com/devMahmoudEmad/Movies-API',
       featured: false,
-      category: 'web',
+      category: 'api',
     },
     {
       id: 5,
-      title: 'Fruit Shop Management System',
-      titleAr: 'نظام إدارة متجر فواكه',
+      title: 'Cafe Management — Windows Forms',
+      titleAr: 'إدارة مقهى — Windows Forms',
       description:
-        'A Web application for  a fruit shop inventory Built only with HTML, CSS',
+        'Desktop application for cafe management built with C# Windows Forms and .NET 8.0. Uses Entity Framework Core for data access with SQL Server. Supports order management, billing, and inventory tracking.',
       descriptionAr:
-        'تطبيق ويب لإدارة مخزون متجر فواكه مبني فقط باستخدام HTML وCSS.',
-      technologies: ['HTML', 'CSS'],
-      githubUrl: 'https://github.com/devMahmoudEmad/fruits-shop',
-      liveUrl: 'https://devmahmoudemad.github.io/fruits-shop/',
-      imageUrl: 'fruit%20shop.png',
-      featured: false,
-      category: 'web',
-    },
-    {
-      id: 6,
-      title: 'Cafe Management desktop Application',
-      titleAr: 'تطبيق سطح مكتب لإدارة مقهى',
-      description:
-        'C# Windows Forms application for managing a cafe, built with .NET 8.0 and Entity Framework Core for data access ',
-      descriptionAr:
-        'تطبيق Windows Forms بلغة C# لإدارة مقهى، مبني على ‎.NET 8.0‎ مع Entity Framework Core للوصول إلى البيانات.',
+        'تطبيق سطح مكتب لإدارة المقهى بُني باستخدام C# Windows Forms و.NET 8.0. يستخدم Entity Framework Core للوصول للبيانات مع SQL Server. يدير الطلبات والفواتير وتتبع المخزون.',
       technologies: [
         'C#',
         'Windows Forms',
@@ -126,38 +126,28 @@ export class ProjectService {
         'Entity Framework Core',
         'SQL Server',
       ],
-      githubUrl: 'https://github.com/devMahmoudEmad/Cafe-WinForms/tree/master',
+      githubUrl: 'https://github.com/devMahmoudEmad/Cafe-WinForms',
       featured: false,
       category: 'desktop',
     },
     {
-      id: 7,
-      title: 'Repair Shop Management System Desktop Application',
-      titleAr: 'نظام إدارة ورشة صيانة الهواتف',
+      id: 6,
+      title: 'Raqmiya E-Commerce — ASP.NET Core MVC',
+      titleAr: 'رقمية للتجارة الإلكترونية — ASP.NET Core MVC',
       description:
-        'Independently designed and developed a desktop system to manage end-to-end operations of a mobile repair shop. Translated real business workflows into technical features including device intake, repair tracking, invoicing, user/role management, daily financial reports, and delivery confirmation. Took full ownership of requirements analysis, implementation, and iterative improvements based on user feedback. Technologies: C#, Avalonia UI, XAML, MVVM, Dapper, SQLite.',
+        'E-commerce web application built with ASP.NET Core MVC, featuring product management, user authentication with ASP.NET Identity, shopping cart, and order processing with SQL Server and Entity Framework Core.',
       descriptionAr:
-        'صممت وطوّرت بشكل مستقل نظام سطح مكتب لإدارة العمليات الشاملة لورشة صيانة الهواتف. قمت بتحويل سير العمل الحقيقي إلى خصائص تقنية تشمل استلام الأجهزة، تتبع الإصلاح، الفوترة، إدارة المستخدمين/الأدوار، التقارير المالية اليومية، وتأكيد التسليم. توليت تحليل المتطلبات والتنفيذ والتحسينات المتكررة بناءً على ملاحظات المستخدمين. التقنيات: C#، Avalonia UI، XAML، MVVM، Dapper، SQLite.',
-      technologies: ['C#', 'Avalonia UI', 'XAML', 'MVVM', 'Dapper', 'SQLite'],
-      featured: false,
-      category: 'desktop',
-    },
-    {
-      id: 8,
-      title: 'Movies API (Movies & Genres Management) – Personal Project',
-      titleAr: 'واجهة أفلام API (إدارة الأفلام والأنواع) – مشروع شخصي',
-      description:
-        'Built a RESTful ASP.NET Core Web API for movies CRUD, details, and filtering by genre. Implemented service-based architecture with DI and AutoMapper (DTO to entity mapping). Added validation for poster uploads (type/size) via multipart/form-data endpoints.',
-      descriptionAr:
-        'بنيت واجهة RESTful باستخدام ‎ASP.NET Core Web API‎ لإدارة CRUD للأفلام، التفاصيل، والتصفية حسب النوع. طبقت معمارية قائمة على الخدمات مع DI وAutoMapper (تحويل DTO إلى الكيانات). أضفت تحققًا لرفع الملصقات (النوع/الحجم) عبر نقاط نهاية multipart/form-data.',
+        'تطبيق تجارة إلكترونية بُني باستخدام ASP.NET Core MVC مع إدارة المنتجات، توثيق المستخدمين بـ ASP.NET Identity، سلة التسوق، ومعالجة الطلبات باستخدام SQL Server وEntity Framework Core.',
       technologies: [
+        'ASP.NET Core MVC',
         'C#',
-        'ASP.NET Core Web API',
-        'EF Core',
-        'Multipart File Uploads',
+        'Entity Framework Core',
+        'SQL Server',
+        'Bootstrap',
       ],
+      githubUrl: 'https://github.com/mido22mo/Raqmiya-ITI-MVC-Project',
       featured: false,
-      category: 'api',
+      category: 'web',
     },
   ];
 
@@ -174,8 +164,8 @@ export class ProjectService {
   }
 
   getProjectsByCategory(category: string): Project[] {
-    if (category === 'all') {
-      return this.projects;
+    if (category === 'all' || category === 'featured') {
+      return category === 'featured' ? this.getFeaturedProjects() : this.projects;
     }
     return this.projects.filter((project) => project.category === category);
   }

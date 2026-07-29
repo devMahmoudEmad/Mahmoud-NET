@@ -1,0 +1,167 @@
+<div class="project-page">
+  <section class="pp-hero">
+    <div class="container">
+      <div class="pp-hero-badge">Engineering Case Study</div>
+      <h1 class="pp-hero-title">Repair Shop Management System</h1>
+      <p class="pp-hero-subtitle">Cross-platform desktop application managing the complete lifecycle of a mobile repair shop</p>
+      <div class="pp-hero-meta">
+        <span class="pp-hero-role">Solo Developer</span>
+        <span class="pp-hero-dot">&middot;</span>
+        <span class="pp-hero-stack">C# &middot; Avalonia UI &middot; MVVM &middot; SQLite</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="pp-body container">
+    <section class="pp-section">
+      <h2 class="pp-section-title">Overview</h2>
+      <p class="pp-text">The Repair Shop Management System is a cross-platform desktop application I independently designed, developed, and deployed for managing mobile repair shop operations. The application handles the full business workflow — device intake, diagnostics tracking, repair workflow, inventory management, invoicing, daily financial reports, and delivery confirmation. Built with Avalonia UI following the MVVM pattern, and using Dapper with SQLite for lightweight, high-performance data access.</p>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Business Problem</h2>
+      <p class="pp-text">Small mobile repair shops typically rely on paper records, spreadsheets, or generic POS systems that do not capture repair-specific workflows. Common problems include lost repair tickets, incorrect pricing, untracked inventory, and difficulty generating daily financial reports. The goal was to build a purpose-built application that digitizes the entire repair lifecycle — from device drop-off to collection — while remaining simple enough for shop employees to adopt without training.</p>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Architecture</h2>
+      <div class="arch-diagram desktop-diagram">
+        <div class="diagram-layer top">
+          <div class="layer-label">Users</div>
+          <div class="diagram-row"><span class="diagram-node">Repair Shop Employees</span></div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Presentation Layer</div>
+          <div class="diagram-row"><span class="diagram-node highlight">Avalonia UI (XAML)</span></div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">ViewModel Layer</div>
+          <div class="diagram-row"><span class="diagram-node">MVVM ViewModels</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">ObservableObject</span>
+            <span class="diagram-tag">RelayCommand</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Business Services</div>
+          <div class="diagram-row"><span class="diagram-node">Domain Logic</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">Customers</span>
+            <span class="diagram-tag">Repairs</span>
+            <span class="diagram-tag">Inventory</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Data Access Layer</div>
+          <div class="diagram-row"><span class="diagram-node highlight">Dapper ORM</span></div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer bottom">
+          <div class="layer-label">Database</div>
+          <div class="diagram-row"><span class="diagram-node highlight">SQLite</span></div>
+        </div>
+      </div>
+
+      <div class="pp-arch-notes">
+        <div class="pp-note"><strong>MVVM Pattern:</strong> ViewModels expose observable properties and commands that the XAML views bind to. This keeps UI code declarative and business logic testable without UI dependencies.</div>
+        <div class="pp-note"><strong>Dapper over EF Core:</strong> Chosen for desktop use — minimal overhead, full SQL control, and faster startup time compared to EF Core. The trade-off is more manual SQL, which is acceptable for a focused application with well-defined queries.</div>
+        <div class="pp-note"><strong>SQLite:</strong> Embedded database eliminates server dependencies. The app runs standalone on any machine with zero configuration, making deployment trivial for small shop owners.</div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Engineering Decisions</h2>
+      <div class="pp-decisions">
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why Avalonia UI?</summary>
+          <div class="pp-decision-body">Avalonia was chosen over WPF because it supports Windows, Linux, and macOS from a single codebase. The XAML-based UI framework is familiar to .NET desktop developers, and its styling system allows for a modern, clean interface without the legacy baggage of Windows Forms.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why MVVM?</summary>
+          <div class="pp-decision-body">MVVM provides clean separation between UI (XAML views) and business logic (ViewModels). ViewModels are testable without instantiating windows or controls. The pattern also makes it straightforward to swap the UI layer without changing business logic.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why Dapper instead of EF Core?</summary>
+          <div class="pp-decision-body">For a desktop application with focused, well-understood queries, Dapper's minimal overhead and full SQL control are advantages. EF Core's change tracking and migration pipeline add complexity that provides little value for a local SQLite database with simple CRUD operations.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why SQLite?</summary>
+          <div class="pp-decision-body">SQLite eliminates deployment complexity. The database is a single file that travels with the application. No server installation, no connection strings to configure, no service dependencies. For a single-user or small-team desktop application, this is the correct trade-off.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Technologies</h2>
+      <div class="pp-tech-grid">
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Language</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">C#</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Framework</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Avalonia UI</span><span class="pp-tech-item">XAML</span><span class="pp-tech-item">.NET 8</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Architecture</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">MVVM</span><span class="pp-tech-item">Service Layer</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Database</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">SQLite</span><span class="pp-tech-item">Dapper</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Tools</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Visual Studio</span><span class="pp-tech-item">Git</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Lessons Learned</h2>
+      <div class="pp-learned-grid">
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Solo Ownership</h3>
+          <p class="pp-learned-body">Building an application from scratch without a team teaches end-to-end ownership — requirements analysis, architecture, implementation, testing, deployment, and user feedback iteration. Every decision is both an opportunity and a responsibility.</p>
+        </div>
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Desktop UI Design</h3>
+          <p class="pp-learned-body">Desktop UI development requires a different mindset than web. State management is local, threading matters for responsiveness, and the user expects native-feeling interactions. Avalonia's XAML system made this manageable.</p>
+        </div>
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Pragmatic Data Access</h3>
+          <p class="pp-learned-body">Choosing Dapper over EF Core for a desktop app was the right call. The simplicity of raw SQL with Dapper's thin wrapper kept the data access layer transparent and performant without the overhead of an ORM.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-related">
+      <h2 class="pp-section-title">Related Projects</h2>
+      <div class="pp-related-grid">
+        <a routerLink="/projects/hospital-information-system" class="pp-related-card">
+          <h3>Hospital Information System</h3>
+          <p>Enterprise healthcare platform serving 15+ clinical modules</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+        <a routerLink="/projects/raqmiya-ecommerce" class="pp-related-card">
+          <h3>Raqmiya E-Commerce Platform</h3>
+          <p>Full-stack e-commerce with .NET Core Web API and Angular</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="pp-section pp-cta-section">
+      <p>Interested in discussing this project or my approach to building software? Feel free to connect.</p>
+      <div class="pp-cta-actions">
+        <a routerLink="/" fragment="contact" class="btn btn-primary">Contact Me</a>
+        <a href="assets/Mahmoud%20Emad%20.Net%20Developer%20CV.pdf" target="_blank" class="btn btn-accent">Download Resume</a>
+        <a href="https://github.com/devMahmoudEmad/Repair-Shop-Management-System" target="_blank" class="btn btn-outline">View on GitHub</a>
+      </div>
+    </section>
+  </div>
+</div>

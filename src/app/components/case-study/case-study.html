@@ -1,0 +1,199 @@
+<section class="case-study section" id="case-study">
+  <div class="container">
+    <div class="case-study-header">
+      <span class="cs-badge">{{ "caseStudy.title" | translate }}</span>
+      <h2 class="section-title">{{ "caseStudy.overview.title" | translate }}</h2>
+      <p class="section-subtitle">{{ "caseStudy.subtitle" | translate }}</p>
+    </div>
+
+    <!-- 1. OVERVIEW -->
+    <div class="cs-section">
+      <p class="cs-body">{{ "caseStudy.overview.body" | translate }}</p>
+    </div>
+
+    <!-- 2. MY ROLE -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.role.title" | translate }}</h3>
+      <p class="cs-body">{{ "caseStudy.role.body" | translate }}</p>
+      <ul class="cs-list">
+        <li *ngFor="let item of getRoleItems()">{{ item }}</li>
+      </ul>
+    </div>
+
+    <!-- 3. BUSINESS CHALLENGES -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.challenges.title" | translate }}</h3>
+      <p class="cs-body">{{ "caseStudy.challenges.body" | translate }}</p>
+      <div class="cs-challenges">
+        <div class="cs-challenge-card" *ngFor="let challenge of getChallenges()">
+          <h4 class="cs-challenge-title">{{ challenge.title }}</h4>
+          <p class="cs-challenge-body">{{ challenge.body }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ENGINEERING APPROACH -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.approach.title" | translate }}</h3>
+      <p class="cs-body">{{ "caseStudy.approach.body" | translate }}</p>
+      <ul class="cs-list cs-list-compact">
+        <li *ngFor="let item of getApproachItems()">{{ item }}</li>
+      </ul>
+    </div>
+
+    <!-- 5. SYSTEM ARCHITECTURE -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.architecture.title" | translate }}</h3>
+      <p class="cs-subheading">{{ "caseStudy.architecture.subtitle" | translate }}</p>
+
+      <div class="arch-diagram his-diagram">
+        <div class="diagram-layer top">
+          <div class="layer-label">Users</div>
+          <div class="diagram-row">
+            <span class="diagram-node">Doctors</span>
+            <span class="diagram-node">Reception</span>
+            <span class="diagram-node">Lab</span>
+            <span class="diagram-node">Pharmacy</span>
+            <span class="diagram-node">Admin</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Presentation Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node highlight">Angular SPA</span>
+            <span class="diagram-node">ASP.NET Web Forms</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">API Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node highlight">ASP.NET Core REST APIs</span>
+          </div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">JWT Auth</span>
+            <span class="diagram-tag">Middleware</span>
+            <span class="diagram-tag">Validation</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Business Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node">Workflow Services</span>
+          </div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">Appointments</span>
+            <span class="diagram-tag">Billing</span>
+            <span class="diagram-tag">Insurance</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Repository Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node">Repository Pattern</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Data Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node highlight">Entity Framework Core</span>
+          </div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">SQL Server</span>
+            <span class="diagram-tag">Stored Procedures</span>
+            <span class="diagram-tag">Views</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer bottom">
+          <div class="diagram-row">
+            <span class="diagram-node highlight">SignalR Notification Hub</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-arch-notes">
+        <div class="cs-note">
+          <strong>Request Flow:</strong> Users interact through Angular SPA or Web Forms. All requests pass through ASP.NET Core middleware pipeline (auth, logging, exception handling), reach REST controllers, which delegate to business services, then repository layer, and finally EF Core against SQL Server.
+        </div>
+        <div class="cs-note">
+          <strong>Authentication Flow:</strong> Login requests are validated against ASP.NET Identity, returning a JWT token. Subsequent requests include the token in the Authorization header. Middleware validates the token on every request and populates the user identity with role claims for authorization.
+        </div>
+        <div class="cs-note">
+          <strong>Business Layer:</strong> Encapsulates healthcare workflow logic — appointment scheduling rules, billing calculations, insurance eligibility checks, and pharmacy inventory policies. Services are injected into controllers via DI and are fully unit-testable.
+        </div>
+        <div class="cs-note">
+          <strong>Repository Layer:</strong> Abstracts EF Core DbContext behind interfaces. Controllers and services depend on interfaces, not concrete DbContext instances. This enables unit testing with mock repositories and allows data access optimization without changing consuming code.
+        </div>
+        <div class="cs-note">
+          <strong>Database Interactions:</strong> EF Core handles CRUD with LINQ, change tracking, and eager loading. Complex reporting queries use stored procedures and views for performance. Database migrations are managed through EF Core code-first migrations.
+        </div>
+        <div class="cs-note">
+          <strong>SignalR Communication:</strong> Real-time notifications for appointment reminders, lab result delivery, and inter-department messaging use SignalR hubs. The server pushes events to connected clients, eliminating the need for polling.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. MY CONTRIBUTIONS -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.contributions.title" | translate }}</h3>
+      <ul class="cs-list">
+        <li *ngFor="let item of getContributions()">{{ item }}</li>
+      </ul>
+    </div>
+
+    <!-- 7. TECHNOLOGIES USED -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.tech.title" | translate }}</h3>
+      <div class="cs-tech-grid">
+        <div class="cs-tech-group" *ngFor="let group of getTechKeys()">
+          <h4 class="cs-tech-group-title">{{ group.titleKey | translate }}</h4>
+          <div class="cs-tech-items">
+            <span class="cs-tech-item" *ngFor="let item of getTechItems(group.itemsKey)">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. ENGINEERING DECISIONS -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.decisions.title" | translate }}</h3>
+      <div class="cs-decisions">
+        <details class="cs-decision" *ngFor="let decision of getDecisions()">
+          <summary class="cs-decision-summary">{{ decision.title }}</summary>
+          <p class="cs-decision-body">{{ decision.body }}</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- 9. WHAT I LEARNED -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.learned.title" | translate }}</h3>
+      <div class="cs-learned-grid">
+        <div class="cs-learned-card" *ngFor="let card of getLearnedCards()">
+          <div class="cs-learned-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4 class="cs-learned-title">{{ card.title }}</h4>
+          <p class="cs-learned-body">{{ card.body }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. KEY TAKEAWAYS -->
+    <div class="cs-section">
+      <h3 class="cs-heading">{{ "caseStudy.takeaways.title" | translate }}</h3>
+      <p class="cs-body">{{ "caseStudy.takeaways.body" | translate }}</p>
+      <ul class="cs-list">
+        <li *ngFor="let item of getTakeawayItems()">{{ item }}</li>
+      </ul>
+      <div class="cs-conclusion">
+        <p>{{ "caseStudy.takeaways.conclusion" | translate }}</p>
+      </div>
+    </div>
+  </div>
+</section>

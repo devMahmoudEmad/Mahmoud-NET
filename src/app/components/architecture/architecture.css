@@ -1,0 +1,245 @@
+.architecture {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(var(--primary-rgb), 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 30% 80%, rgba(var(--accent-rgb), 0.03) 0%, transparent 50%),
+    var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.arch-cards {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.arch-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.arch-card.expanded {
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.arch-card-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  gap: 1rem;
+}
+
+.arch-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.arch-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: var(--gradient-primary);
+  color: white;
+  flex-shrink: 0;
+}
+
+.arch-badge.accent {
+  background: var(--gradient-accent);
+}
+
+.arch-chevron {
+  display: flex;
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.arch-card.expanded .arch-chevron {
+  transform: rotate(180deg);
+}
+
+.arch-card-body {
+  padding: 0 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.arch-description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+}
+
+/* Diagram */
+.arch-diagram {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.diagram-layer {
+  text-align: center;
+  width: 100%;
+}
+
+.layer-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  opacity: 0.7;
+}
+
+.diagram-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.diagram-node {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.diagram-node.highlight {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+}
+
+.diagram-sub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.diagram-tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--text-secondary);
+}
+
+.diagram-arrow {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.diagram-layer.top .diagram-node,
+.diagram-layer.bottom .diagram-node {
+  background: var(--gradient-accent);
+  color: white;
+  border-color: transparent;
+}
+
+/* Lists */
+.arch-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.75rem;
+}
+
+.arch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.arch-list li {
+  position: relative;
+  padding-inline-start: 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.arch-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--primary-color);
+}
+
+html[dir="rtl"] .arch-card-header {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .architecture {
+    padding: 4rem 0;
+  }
+
+  .arch-card-body {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .arch-card-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .diagram-node {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .architecture {
+    padding: 3rem 0;
+  }
+
+  .diagram-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

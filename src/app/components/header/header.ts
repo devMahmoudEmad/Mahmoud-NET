@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,6 +15,7 @@ import { scrollToSection } from '../../utils/scroll.utils';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -26,6 +28,7 @@ import { scrollToSection } from '../../utils/scroll.utils';
 export class HeaderComponent implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
   public languageService = inject(LanguageService);
+  private router = inject(Router);
 
   isMenuOpen = false;
   isDarkMode = false;
@@ -58,7 +61,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   scrollTo(sectionId: string): void {
     this.isMenuOpen = false;
-    scrollToSection(sectionId);
+    const isHome = this.router.url === '/' || this.router.url.startsWith('/?');
+    if (isHome) {
+      scrollToSection(sectionId);
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId });
+    }
   }
 
   private onScroll(): void {

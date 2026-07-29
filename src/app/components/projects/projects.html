@@ -1,125 +1,48 @@
-<section class="projects section" id="projects">
+<section class="featured-projects section">
   <div class="container">
     <h2 class="section-title">{{ "projects.title" | translate }}</h2>
     <p class="section-subtitle">{{ "projects.subtitle" | translate }}</p>
 
-    <div class="filter-tabs">
-      <button
-        *ngFor="let category of categories"
-        class="filter-btn"
-        [class.active]="selectedCategory === category.value"
-        (click)="filterByCategory(category.value)"
-      >
-        {{ category.labelKey | translate }}
-      </button>
-    </div>
-
-    <div class="projects-grid" [@cardAnimation]="filteredProjects.length">
-      <div
-        *ngFor="let project of filteredProjects"
-        class="project-card"
-        [class.featured]="project.featured"
-      >
-        <div class="project-image">
-          <img
-            *ngIf="project.imageUrl; else placeholder"
-            [src]="project.imageUrl"
-            [alt]="project.title"
-            loading="lazy"
-          />
-          <ng-template #placeholder>
-            <div class="project-placeholder">
-              <span class="project-icon">
-                {{
-                  project.category === "web"
-                    ? "&#127760;"
-                    : project.category === "api"
-                      ? "&#128279;"
-                      : project.category === "desktop"
-                        ? "&#128187;"
-                        : "&#128640;"
-                }}
+    <div class="featured-grid">
+      <div *ngFor="let project of projects" class="featured-card">
+        <div class="fc-image">
+          <ng-container *ngIf="project.imageUrl; else placeholderImg">
+            <img [src]="project.imageUrl" [alt]="getTitle(project)" loading="lazy" />
+          </ng-container>
+          <ng-template #placeholderImg>
+            <div class="fc-placeholder">
+              <span class="fc-placeholder-icon">
+                {{ project.category === 'web' ? '🌐' : project.category === 'api' ? '🔗' : '💻' }}
               </span>
             </div>
           </ng-template>
         </div>
 
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">{{ getProjectTitle(project) }}</h3>
-            <div *ngIf="project.featured" class="featured-badge">
-              <span>&#11088;</span>
-              {{ "projects.featured" | translate }}
-            </div>
+        <div class="fc-body">
+          <h3 class="fc-title">{{ getTitle(project) }}</h3>
+          <p class="fc-desc">{{ getDescription(project) }}</p>
+
+          <div class="fc-tech">
+            <span class="fc-tech-tag" *ngFor="let tech of project.technologies.slice(0, 5)">{{ tech }}</span>
+            <span *ngIf="project.technologies.length > 5" class="fc-tech-tag fc-tech-more">+{{ project.technologies.length - 5 }}</span>
           </div>
 
-          <p
-            class="project-description"
-            [class.expanded]="isDescriptionExpanded(project.id)"
-          >
-            {{ getProjectDescription(project) }}
-          </p>
-
-          <button
-            type="button"
-            class="read-more-btn"
-            (click)="toggleDescription(project.id)"
-          >
-            {{
-              (isDescriptionExpanded(project.id)
-                ? "projects.buttons.readLess"
-                : "projects.buttons.readMore"
-              ) | translate
-            }}
-          </button>
-
-          <div class="project-technologies">
-            <span *ngFor="let tech of project.technologies" class="tech-tag">
-              {{ tech }}
-            </span>
-          </div>
-
-          <div class="project-links">
-            <a
-              *ngIf="project.githubUrl"
-              [href]="project.githubUrl"
-              class="btn-link"
-              target="_blank"
-              rel="noopener"
-            >
-              <app-icon name="github" [size]="20"></app-icon>
-              {{ "projects.buttons.github" | translate }}
+          <div class="fc-actions">
+            <a [routerLink]="getProjectRoute(project)" class="btn btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {{ "projects.buttons.viewCaseStudy" | translate }}
             </a>
-
-            <a
-              *ngIf="project.liveUrl"
-              [href]="project.liveUrl"
-              class="btn-link btn-accent"
-              target="_blank"
-              rel="noopener"
-            >
-              <app-icon name="external" [size]="20"></app-icon>
-              {{ "projects.buttons.liveDemo" | translate }}
+            <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              <app-icon name="github" [size]="16"></app-icon>
+              {{ "projects.buttons.github" | translate }}
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="filteredProjects.length === 0" class="empty-state">
-      <div class="empty-icon">&#128194;</div>
-      <h3>{{ "projects.empty.title" | translate }}</h3>
-      <p>{{ "projects.empty.subtitle" | translate }}</p>
-    </div>
-
-    <div class="more-projects">
-      <p class="more-text">{{ "projects.more.text" | translate }}</p>
-      <a
-        href="https://github.com/devMahmoudEmad"
-        class="btn btn-outline"
-        target="_blank"
-      >
-        <app-icon name="github" [size]="20"></app-icon>
+    <div class="fc-footer">
+      <a routerLink="/projects" class="btn btn-outline">
         {{ "projects.more.viewAll" | translate }}
       </a>
     </div>

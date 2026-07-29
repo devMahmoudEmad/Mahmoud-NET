@@ -1,0 +1,210 @@
+<div class="project-page">
+  <section class="pp-hero">
+    <div class="container">
+      <div class="pp-hero-badge">Engineering Case Study</div>
+      <h1 class="pp-hero-title">Raqmiya Digital Marketplace</h1>
+      <p class="pp-hero-subtitle">Full-stack digital marketplace platform built with .NET 8 Web API and Angular 20</p>
+      <div class="pp-hero-meta">
+        <span class="pp-hero-role">Backend Developer + Integration</span>
+        <span class="pp-hero-dot">&middot;</span>
+        <span class="pp-hero-stack">.NET 8 &middot; Angular 20 &middot; SQL Server &middot; SignalR</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="pp-body container">
+    <section class="pp-section">
+      <h2 class="pp-section-title">Overview</h2>
+      <p class="pp-text">Raqmiya is a comprehensive digital marketplace connecting creators with customers worldwide. Built with .NET 8 and Angular 20, the platform enables creators to sell digital products, courses, and services while providing customers with a secure shopping experience featuring real-time communication and AI-powered capabilities.</p>
+      <p class="pp-text">My primary contribution was designing and building the entire backend API — RESTful endpoints for authentication, product management, messaging, payment processing, and analytics — using Clean Architecture with separate API, Core, and Infrastructure layers. I also led the Angular-API integration, building typed HTTP services that consumed every backend endpoint, implementing SignalR hubs for real-time features, and supporting the frontend components by wiring them to the API layer.</p>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Business Problem</h2>
+      <p class="pp-text">Digital marketplaces require a robust backend that can handle multi-role user management (Admin, Creator, Customer), secure payment processing, real-time messaging between buyers and sellers, AI-powered content moderation, and comprehensive analytics — all while maintaining data consistency and security. The challenge was to build a scalable API that could serve an Angular SPA and support future mobile clients.</p>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">My Role</h2>
+      <p class="pp-text">I worked as the <strong>Backend Developer</strong> and was responsible for the full API design and implementation. I built RESTful controllers and SignalR hubs, implemented JWT authentication with role-based access, designed the SQL Server database schema with Entity Framework Core, and integrated Stripe payment processing. On the frontend side, I built the HTTP service layer that connected every Angular component to the API, implemented SignalR client integration for real-time chat and notifications, and supported component development by ensuring the API contract aligned with the UI requirements.</p>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Key Features</h2>
+      <div class="pp-arch-notes">
+        <div class="pp-note"><strong>Core Marketplace:</strong> Digital product sales, secure payment processing via Stripe, instant downloads after purchase, advanced search and filtering, and a review and rating system.</div>
+        <div class="pp-note"><strong>Real-time Communication:</strong> Live messaging between customers and creators via SignalR, service requests with budget proposals, file attachments in conversations, and read receipts with delivery confirmations.</div>
+        <div class="pp-note"><strong>AI-powered Features:</strong> Intelligent chatbot with RAG (Retrieval-Augmented Generation), Google Vision API integration for image safety moderation, knowledge base with document analysis, and smart product recommendations.</div>
+        <div class="pp-note"><strong>Multi-Role System:</strong> Admin, Creator, and Customer roles with JWT authentication, comprehensive profile management, and granular access control through route guards and policy-based authorization.</div>
+        <div class="pp-note"><strong>Analytics and Reporting:</strong> Revenue analytics with detailed sales and earnings reports, user engagement tracking, product performance metrics, and financial insights with currency support.</div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Architecture</h2>
+      <div class="arch-diagram">
+        <div class="diagram-layer top">
+          <div class="layer-label">Client</div>
+          <div class="diagram-row"><span class="diagram-node highlight">Angular 20 SPA</span></div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">API Layer</div>
+          <div class="diagram-row"><span class="diagram-node highlight">.NET 8 Web API Controllers</span></div>
+          <div class="diagram-row"><span class="diagram-node">SignalR Hubs</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">JWT Auth</span>
+            <span class="diagram-tag">Middleware</span>
+            <span class="diagram-tag">DTO Validation</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Core Layer</div>
+          <div class="diagram-row"><span class="diagram-node">Entities</span><span class="diagram-node">Interfaces</span><span class="diagram-node">Services</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">Messaging</span>
+            <span class="diagram-tag">Payments</span>
+            <span class="diagram-tag">Moderation</span>
+            <span class="diagram-tag">Analytics</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Infrastructure Layer</div>
+          <div class="diagram-row"><span class="diagram-node highlight">Entity Framework Core</span><span class="diagram-node">Repositories</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">Stripe</span>
+            <span class="diagram-tag">Google Vision</span>
+            <span class="diagram-tag">SMTP</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer bottom">
+          <div class="layer-label">Database</div>
+          <div class="diagram-row"><span class="diagram-node highlight">SQL Server</span></div>
+        </div>
+      </div>
+
+      <div class="pp-arch-notes">
+        <div class="pp-note"><strong>Clean Architecture:</strong> The backend is structured into three projects — API (controllers, hubs, middleware), Core (entities, interfaces, business services), and Infrastructure (EF Core, repositories, external API clients). This separation keeps business logic independent of framework concerns.</div>
+        <div class="pp-note"><strong>Angular Service Layer:</strong> Every API endpoint is consumed through typed Angular services. Components delegate data access to these services, keeping templates clean and making the API contract explicit. SignalR client integration is encapsulated in dedicated chat services.</div>
+        <div class="pp-note"><strong>Real-time via SignalR:</strong> Messaging, notifications, and presence indicators use SignalR hubs on the backend with corresponding Angular service clients. The server pushes events to connected clients, eliminating polling and enabling instant updates.</div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Engineering Decisions</h2>
+      <div class="pp-decisions">
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why .NET 8 with Clean Architecture?</summary>
+          <div class="pp-decision-body">.NET 8 provides the latest performance improvements and language features. Clean Architecture with three projects (API, Core, Infrastructure) ensures the domain logic remains framework-agnostic and testable. New features can be added by extending existing interfaces and services without modifying the core layer.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why SignalR for Real-time Features?</summary>
+          <div class="pp-decision-body">Marketplace messaging requires instant delivery — polling would be inefficient and slow. SignalR provides persistent WebSocket connections with automatic fallback to Server-Sent Events or long polling when WebSockets are unavailable. The Angular @microsoft/signalr client integrates seamlessly, enabling typed hub method calls from both sides.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">Why Stripe for Payment Processing?</summary>
+          <div class="pp-decision-body">Stripe handles PCI compliance, supports multiple payment methods globally, and provides webhooks for event-driven payment workflows. The PaymentIntent API enables secure payment flows where sensitive card data never touches the server, reducing security scope.</div>
+        </details>
+        <details class="pp-decision">
+          <summary class="pp-decision-summary">How Was Angular-API Integration Structured?</summary>
+          <div class="pp-decision-body">Each backend controller has a corresponding Angular service that provides typed methods for every endpoint. HTTP interceptors attach JWT tokens automatically. Environment-specific API URLs are configured through Angular environment files. SignalR service clients manage connection lifecycle, reconnection, and hub method registration, keeping real-time communication decoupled from component logic.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Key Contributions</h2>
+      <div class="pp-arch-notes">
+        <div class="pp-note"><strong>Backend API Design:</strong> Built the complete .NET 8 Web API with controllers for authentication, products, messaging, payments, analytics, and admin management. Implemented JWT authentication with role-based authorization, request validation via DTOs and FluentValidation, and global exception handling middleware.</div>
+        <div class="pp-note"><strong>Database Schema Design:</strong> Designed the SQL Server database with Entity Framework Core code-first migrations. Modeled complex relationships — products to categories, orders to users with line items, payments to orders, messaging conversations with attachments — with proper foreign keys, indexes, and cascade behaviors.</div>
+        <div class="pp-note"><strong>Real-time Communication:</strong> Implemented SignalR hubs for live messaging, service requests, and notifications. The Angular client connects to hubs with automatic reconnection, handling presence indicators, message status updates, and typing indicators.</div>
+        <div class="pp-note"><strong>Angular-API Integration:</strong> Built the complete HTTP service layer consuming every API endpoint. Developed typed services for auth, products, messaging, payments, and admin operations. Configured HTTP interceptors for JWT token injection, error handling, and loading state tracking.</div>
+        <div class="pp-note"><strong>Frontend Component Support:</strong> Collaborated on component development by ensuring API contracts matched UI requirements. Built reusable data access patterns that components consumed directly, reducing boilerplate and keeping templates focused on presentation.</div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Technologies</h2>
+      <div class="pp-tech-grid">
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Backend</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">C#</span><span class="pp-tech-item">.NET 8</span><span class="pp-tech-item">ASP.NET Core Web API</span><span class="pp-tech-item">SignalR</span><span class="pp-tech-item">FluentValidation</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Frontend</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Angular 20</span><span class="pp-tech-item">TypeScript</span><span class="pp-tech-item">SignalR Client</span><span class="pp-tech-item">RxJS</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Database</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">SQL Server</span><span class="pp-tech-item">Entity Framework Core</span><span class="pp-tech-item">Code-First Migrations</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Architecture</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Clean Architecture</span><span class="pp-tech-item">REST API</span><span class="pp-tech-item">Repository Pattern</span><span class="pp-tech-item">DTO Pattern</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Auth & Security</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">JWT</span><span class="pp-tech-item">ASP.NET Identity</span><span class="pp-tech-item">Role-based Auth</span><span class="pp-tech-item">Google Vision API</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Payments</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Stripe</span><span class="pp-tech-item">Payment Intents</span><span class="pp-tech-item">Webhooks</span></div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Tools</h4>
+          <div class="pp-tech-items"><span class="pp-tech-item">Visual Studio</span><span class="pp-tech-item">SSMS</span><span class="pp-tech-item">Git</span><span class="pp-tech-item">Postman</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <h2 class="pp-section-title">Lessons Learned</h2>
+      <div class="pp-learned-grid">
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Clean Architecture in Practice</h3>
+          <p class="pp-learned-body">Separating the backend into API, Core, and Infrastructure projects makes the system maintainable and testable. Business logic in the Core layer has no dependency on ASP.NET or EF Core, making it straightforward to unit test without mocking infrastructure concerns.</p>
+        </div>
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Real-time Communication Design</h3>
+          <p class="pp-learned-body">SignalR hubs require careful connection management on the client side — handling reconnection, grouping users by conversation, and managing presence state. The Angular SignalR client handles most of this, but you need to design hub method contracts as carefully as REST endpoints.</p>
+        </div>
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">API-Driven Frontend Development</h3>
+          <p class="pp-learned-body">Building the API contract first (controllers, DTOs, response shapes) and then consuming it from Angular services creates a clean separation. Typed services with RxJS observables make error handling and loading state management consistent across the application.</p>
+        </div>
+        <div class="pp-learned-card">
+          <h3 class="pp-learned-title">Third-party Integration Patterns</h3>
+          <p class="pp-learned-body">Integrating Stripe, Google Vision API, and SMTP taught me the importance of wrapping external dependencies behind interfaces. This makes the system testable (you can mock the interface) and swapable (changing providers doesn't ripple through the codebase).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-related">
+      <h2 class="pp-section-title">Related Projects</h2>
+      <div class="pp-related-grid">
+        <a routerLink="/projects/hospital-information-system" class="pp-related-card">
+          <h3>Hospital Information System</h3>
+          <p>Enterprise healthcare platform serving 15+ clinical modules</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+        <a routerLink="/projects/repair-shop-management" class="pp-related-card">
+          <h3>Repair Shop Management System</h3>
+          <p>Cross-platform desktop application with MVVM and SQLite</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="pp-section pp-cta-section">
+      <p>Interested in discussing this project or my approach to building software? Feel free to connect.</p>
+      <div class="pp-cta-actions">
+        <a routerLink="/" fragment="contact" class="btn btn-primary">Contact Me</a>
+        <a href="assets/Mahmoud%20Emad%20.Net%20Developer%20CV.pdf" target="_blank" class="btn btn-accent">Download Resume</a>
+        <a href="https://github.com/Algorithm-Archetict/Raqmiya" target="_blank" class="btn btn-outline">View on GitHub</a>
+      </div>
+    </section>
+  </div>
+</div>

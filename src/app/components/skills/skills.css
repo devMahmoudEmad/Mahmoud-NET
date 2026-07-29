@@ -96,6 +96,28 @@
   flex-shrink: 0;
 }
 
+.category-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.learning-category {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  background: linear-gradient(135deg, var(--glass-bg), rgba(var(--accent-rgb), 0.05));
+}
+
+.learning-category::before {
+  background: var(--gradient-accent);
+}
+
+.learning-category .category-title::before {
+  background: var(--gradient-accent);
+}
+
+.learning-category .category-icon {
+  color: var(--accent-color);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

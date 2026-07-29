@@ -1,0 +1,33 @@
+<section class="po-section">
+  <div class="container">
+    <div class="po-header">
+      <a routerLink="/" class="po-back">&larr; Home</a>
+      <h1 class="po-title">Projects</h1>
+      <p class="po-subtitle">Engineering case studies and software I have built</p>
+    </div>
+
+    <div class="po-grid">
+      <a *ngFor="let project of projects" [routerLink]="getProjectRoute(project)" class="po-card">
+        <div class="po-card-image">
+          <div *ngIf="!project.imageUrl" class="po-placeholder">
+            <span class="po-placeholder-icon">{{ project.category === 'web' ? '🌐' : '💻' }}</span>
+          </div>
+          <img *ngIf="project.imageUrl" [src]="project.imageUrl" [alt]="getTitle(project)" loading="lazy" />
+        </div>
+        <div class="po-card-body">
+          <h2 class="po-card-title">{{ getTitle(project) }}</h2>
+          <p class="po-card-meta">
+            <span class="po-card-role">Full Stack .NET Developer</span>
+            <span class="po-card-dot">&middot;</span>
+            <span class="po-card-cat">{{ project.category }}</span>
+          </p>
+          <div class="po-card-tech">
+            <span class="po-tech-tag" *ngFor="let tech of project.technologies.slice(0, 4)">{{ tech }}</span>
+            <span *ngIf="project.technologies.length > 4" class="po-tech-tag po-tech-more">+{{ project.technologies.length - 4 }}</span>
+          </div>
+          <span class="po-card-cta">Read the case study &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

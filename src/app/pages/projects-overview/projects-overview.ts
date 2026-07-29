@@ -4,21 +4,15 @@ import { RouterModule } from '@angular/router';
 import { ProjectService, Project } from '../../services/project.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
-import { IconComponent } from '../shared/icon/icon';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-projects-overview',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    TranslateModule,
-    IconComponent,
-  ],
-  templateUrl: './projects.html',
-  styleUrls: ['./projects.css'],
+  imports: [CommonModule, RouterModule, TranslateModule],
+  templateUrl: './projects-overview.html',
+  styleUrls: ['./projects-overview.css'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsOverviewComponent implements OnInit {
   private projectService = inject(ProjectService);
   protected languageService = inject(LanguageService);
   projects: Project[] = [];
@@ -41,11 +35,5 @@ export class ProjectsComponent implements OnInit {
     return this.languageService.currentLang() === 'ar' && project.titleAr
       ? project.titleAr
       : project.title;
-  }
-
-  getDescription(project: Project): string {
-    return this.languageService.currentLang() === 'ar' && project.descriptionAr
-      ? project.descriptionAr
-      : project.description;
   }
 }

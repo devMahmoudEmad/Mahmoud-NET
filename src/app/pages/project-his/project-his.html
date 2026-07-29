@@ -1,0 +1,276 @@
+<div class="project-page">
+  <!-- Hero -->
+  <section class="pp-hero">
+    <div class="container">
+      <div class="pp-hero-badge">Engineering Case Study</div>
+      <h1 class="pp-hero-title">Hospital Information System</h1>
+      <p class="pp-hero-subtitle">Enterprise healthcare platform serving 15+ clinical and administrative modules</p>
+      <div class="pp-hero-meta">
+        <span class="pp-hero-role">Full Stack .NET Developer</span>
+        <span class="pp-hero-dot">&middot;</span>
+        <span class="pp-hero-stack">ASP.NET Core &middot; Angular &middot; SQL Server</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="pp-body container">
+    <!-- 1. Overview -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">Overview</h2>
+      <p class="pp-text">{{ "caseStudy.overview.body" | translate }}</p>
+    </section>
+
+    <!-- 2. My Role -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.role.title" | translate }}</h2>
+      <p class="pp-text">{{ "caseStudy.role.body" | translate }}</p>
+      <ul class="pp-list">
+        <li *ngFor="let item of getRoleItems()">{{ item }}</li>
+      </ul>
+    </section>
+
+    <!-- 3. Business Challenges -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.challenges.title" | translate }}</h2>
+      <p class="pp-text">{{ "caseStudy.challenges.body" | translate }}</p>
+      <div class="pp-challenges">
+        <div class="pp-challenge" *ngFor="let challenge of getChallenges()">
+          <h3 class="pp-challenge-title">{{ challenge.title }}</h3>
+          <p class="pp-challenge-body">{{ challenge.body }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Engineering Approach -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.approach.title" | translate }}</h2>
+      <p class="pp-text">{{ "caseStudy.approach.body" | translate }}</p>
+      <ul class="pp-list pp-list-dense">
+        <li *ngFor="let item of getApproachItems()">{{ item }}</li>
+      </ul>
+    </section>
+
+    <!-- 5. Architecture -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.architecture.title" | translate }}</h2>
+      <p class="pp-text">{{ "caseStudy.architecture.subtitle" | translate }}</p>
+
+      <div class="arch-diagram his-diagram">
+        <div class="diagram-layer top">
+          <div class="layer-label">Users</div>
+          <div class="diagram-row">
+            <span class="diagram-node">Doctors</span>
+            <span class="diagram-node">Reception</span>
+            <span class="diagram-node">Lab</span>
+            <span class="diagram-node">Pharmacy</span>
+            <span class="diagram-node">Admin</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Presentation Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node highlight">Angular SPA</span>
+            <span class="diagram-node">ASP.NET Web Forms</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">API Layer</div>
+          <div class="diagram-row">
+            <span class="diagram-node highlight">ASP.NET Core REST APIs</span>
+          </div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">JWT Auth</span>
+            <span class="diagram-tag">Middleware</span>
+            <span class="diagram-tag">Validation</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Business Layer</div>
+          <div class="diagram-row"><span class="diagram-node">Workflow Services</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">Appointments</span>
+            <span class="diagram-tag">Billing</span>
+            <span class="diagram-tag">Insurance</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Repository Layer</div>
+          <div class="diagram-row"><span class="diagram-node">Repository Pattern</span></div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer">
+          <div class="layer-label">Data Layer</div>
+          <div class="diagram-row"><span class="diagram-node highlight">Entity Framework Core</span></div>
+          <div class="diagram-sub">
+            <span class="diagram-tag">SQL Server</span>
+            <span class="diagram-tag">Stored Procedures</span>
+            <span class="diagram-tag">Views</span>
+          </div>
+        </div>
+        <div class="diagram-arrow">&#8595;</div>
+        <div class="diagram-layer bottom">
+          <div class="diagram-row"><span class="diagram-node highlight">SignalR Notification Hub</span></div>
+        </div>
+      </div>
+
+      <div class="pp-arch-notes">
+        <div class="pp-note"><strong>Request Flow:</strong> Users interact through Angular SPA or Web Forms. All requests pass through ASP.NET Core middleware pipeline (auth, logging, exception handling), reach REST controllers, which delegate to business services, then repository layer, and finally EF Core against SQL Server.</div>
+        <div class="pp-note"><strong>Authentication Flow:</strong> Login requests validated against ASP.NET Identity, returning a JWT token. Subsequent requests include the token in the Authorization header. Middleware validates on every request and populates user identity with role claims.</div>
+        <div class="pp-note"><strong>Business Layer:</strong> Encapsulates healthcare workflow logic — appointment scheduling rules, billing calculations, insurance eligibility checks, pharmacy inventory policies. Injected into controllers via DI, fully unit-testable.</div>
+        <div class="pp-note"><strong>Repository Layer:</strong> Abstracts EF Core DbContext behind interfaces. Enables unit testing with mock repositories and allows data access optimization without changing consuming code.</div>
+        <div class="pp-note"><strong>Database Interactions:</strong> EF Core handles CRUD with LINQ, change tracking, eager loading. Complex reporting uses stored procedures and views. Migrations via EF Core code-first.</div>
+        <div class="pp-note"><strong>SignalR Communication:</strong> Real-time notifications for appointment reminders, lab result delivery, inter-department messaging. Server pushes events to connected clients — eliminating polling.</div>
+      </div>
+    </section>
+
+    <!-- 6. Engineering Decisions -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.decisions.title" | translate }}</h2>
+      <div class="pp-decisions">
+        <details class="pp-decision" *ngFor="let decision of getDecisions()">
+          <summary class="pp-decision-summary">{{ decision.title }}</summary>
+          <div class="pp-decision-body">{{ decision.body }}</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 7. My Contributions -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.contributions.title" | translate }}</h2>
+      <ul class="pp-list">
+        <li *ngFor="let item of getContributions()">{{ item }}</li>
+      </ul>
+    </section>
+
+    <!-- 8. Technologies -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.tech.title" | translate }}</h2>
+      <div class="pp-tech-grid">
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Backend</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">C#</span>
+            <span class="pp-tech-item">ASP.NET Core</span>
+            <span class="pp-tech-item">ASP.NET Web API</span>
+            <span class="pp-tech-item">ASP.NET MVC</span>
+            <span class="pp-tech-item">ASP.NET Web Forms</span>
+          </div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Architecture &amp; Patterns</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">Layered Architecture</span>
+            <span class="pp-tech-item">Repository Pattern</span>
+            <span class="pp-tech-item">Dependency Injection</span>
+            <span class="pp-tech-item">Middleware Pipeline</span>
+            <span class="pp-tech-item">DTO Mapping</span>
+          </div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Database</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">SQL Server</span>
+            <span class="pp-tech-item">Entity Framework Core</span>
+            <span class="pp-tech-item">LINQ</span>
+            <span class="pp-tech-item">Stored Procedures</span>
+            <span class="pp-tech-item">Views &amp; Functions</span>
+          </div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Authentication &amp; Security</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">JWT</span>
+            <span class="pp-tech-item">ASP.NET Identity</span>
+            <span class="pp-tech-item">Role-Based Authorization</span>
+            <span class="pp-tech-item">Cookie Authentication</span>
+          </div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Real-Time Communication</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">SignalR</span>
+            <span class="pp-tech-item">WebSocket Transport</span>
+            <span class="pp-tech-item">Hub Pattern</span>
+          </div>
+        </div>
+        <div class="pp-tech-group">
+          <h4 class="pp-tech-group-title">Development &amp; DevOps</h4>
+          <div class="pp-tech-items">
+            <span class="pp-tech-item">Visual Studio</span>
+            <span class="pp-tech-item">Azure DevOps</span>
+            <span class="pp-tech-item">Git</span>
+            <span class="pp-tech-item">SSMS</span>
+            <span class="pp-tech-item">Postman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Screenshots -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">Screenshots</h2>
+      <p class="pp-text">Due to confidentiality agreements, screenshots of the Hospital Information System cannot be shared publicly. The architecture diagram above represents the system's structural design.</p>
+      <div class="pp-screenshots-placeholder">
+        <div class="pp-screenshot-card" *ngFor="let _ of [1,2,3]">
+          <div class="pp-screenshot-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <span>Confidential</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. What I Learned -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.learned.title" | translate }}</h2>
+      <div class="pp-learned-grid">
+        <div class="pp-learned-card" *ngFor="let card of getLearnedCards()">
+          <h3 class="pp-learned-title">{{ card.title }}</h3>
+          <p class="pp-learned-body">{{ card.body }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Key Takeaways -->
+    <section class="pp-section">
+      <h2 class="pp-section-title">{{ "caseStudy.takeaways.title" | translate }}</h2>
+      <p class="pp-text">{{ "caseStudy.takeaways.body" | translate }}</p>
+      <ul class="pp-list">
+        <li *ngFor="let item of getTakeawayItems()">{{ item }}</li>
+      </ul>
+      <div class="pp-conclusion">{{ "caseStudy.takeaways.conclusion" | translate }}</div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="pp-section pp-related">
+      <h2 class="pp-section-title">Related Projects</h2>
+      <div class="pp-related-grid">
+        <a routerLink="/projects/repair-shop-management" class="pp-related-card">
+          <h3>Repair Shop Management System</h3>
+          <p>Cross-platform desktop application with MVVM and SQLite</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+        <a routerLink="/projects/raqmiya-ecommerce" class="pp-related-card">
+          <h3>Raqmiya E-Commerce Platform</h3>
+          <p>Full-stack e-commerce with .NET Core Web API and Angular</p>
+          <span class="pp-related-cta">Read case study &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pp-section pp-cta-section">
+      <p>Interested in discussing this project or my approach to building enterprise software? Feel free to connect.</p>
+      <div class="pp-cta-actions">
+        <a routerLink="/" fragment="contact" class="btn btn-primary">Contact Me</a>
+        <a href="assets/Mahmoud%20Emad%20.Net%20Developer%20CV.pdf" target="_blank" class="btn btn-accent">Download Resume</a>
+        <a href="https://www.linkedin.com/in/mahmoud-emad-373970216/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/devMahmoudEmad" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </section>
+  </div>
+</div>

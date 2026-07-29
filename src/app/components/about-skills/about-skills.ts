@@ -2,36 +2,35 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-export interface SkillCategory {
+export interface SkillGroup {
   key: string;
   titleKey: string;
   itemsKey: string;
   icon: string;
+  learning?: boolean;
 }
 
 @Component({
-  selector: 'app-skills',
+  selector: 'app-about-skills',
   standalone: true,
   imports: [CommonModule, TranslateModule],
-  templateUrl: './skills.html',
-  styleUrls: ['./skills.css'],
+  templateUrl: './about-skills.html',
+  styleUrls: ['./about-skills.css'],
 })
-export class SkillsComponent {
+export class AboutSkillsComponent {
   private translate = inject(TranslateService);
 
-  categories: SkillCategory[] = [
+  skillGroups: SkillGroup[] = [
     { key: 'backend', titleKey: 'skills.backend', itemsKey: 'skills.backendItems', icon: 'server' },
     { key: 'architecture', titleKey: 'skills.architecture', itemsKey: 'skills.architectureItems', icon: 'account_tree' },
     { key: 'frontend', titleKey: 'skills.frontend', itemsKey: 'skills.frontendItems', icon: 'web' },
     { key: 'desktop', titleKey: 'skills.desktop', itemsKey: 'skills.desktopItems', icon: 'desktop_windows' },
     { key: 'databases', titleKey: 'skills.databases', itemsKey: 'skills.databasesItems', icon: 'storage' },
-    { key: 'devops', titleKey: 'skills.devops', itemsKey: 'skills.devopsItems', icon: 'deployed_code' },
     { key: 'tools', titleKey: 'skills.tools', itemsKey: 'skills.toolsItems', icon: 'build' },
-    { key: 'practices', titleKey: 'skills.practices', itemsKey: 'skills.practicesItems', icon: 'fact_check' },
-    { key: 'learning', titleKey: 'skills.learning', itemsKey: 'skills.learningItems', icon: 'school' },
+    { key: 'learning', titleKey: 'skills.learning', itemsKey: 'skills.learningItems', icon: 'school', learning: true },
   ];
 
-  getCategoryItems(category: SkillCategory): string[] {
-    return this.translate.instant(category.itemsKey);
+  getGroupItems(group: SkillGroup): string[] {
+    return this.translate.instant(group.itemsKey);
   }
 }

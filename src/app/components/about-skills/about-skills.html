@@ -1,0 +1,34 @@
+<section class="about-skills section">
+  <div class="container">
+    <h2 class="section-title">{{ "about.title" | translate }}</h2>
+    <div class="about-grid">
+      <div class="about-column">
+        <div class="about-header">
+          <span class="about-badge">{{ "about.role" | translate }}</span>
+          <p class="about-lead">{{ "about.profile" | translate }}</p>
+        </div>
+        <div class="about-deliver card">
+          <h3>{{ "about.deliver.title" | translate }}</h3>
+          <ul class="about-list">
+            <li>{{ "about.deliver.item1" | translate }}</li>
+            <li>{{ "about.deliver.item2" | translate }}</li>
+            <li>{{ "about.deliver.item3" | translate }}</li>
+            <li>{{ "about.deliver.item4" | translate }}</li>
+            <li>{{ "about.deliver.item5" | translate }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skills-column">
+        <div class="skill-group" *ngFor="let group of skillGroups" [class.skill-learning]="group.learning">
+          <h4 class="skill-group-title">
+            <span class="skill-icon material-symbols-outlined">{{ group.icon }}</span>
+            {{ group.titleKey | translate }}
+          </h4>
+          <div class="skill-items">
+            <span class="skill-badge" *ngFor="let item of getGroupItems(group)">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

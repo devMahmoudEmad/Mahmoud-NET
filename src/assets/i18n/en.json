@@ -3,12 +3,15 @@
     "nav": {
       "home": "Home",
       "about": "About",
+      "experience": "Experience",
+      "architecture": "Architecture",
+      "caseStudy": "Case Study",
       "skills": "Skills",
       "projects": "Projects",
-      "contact": "Contact"
+      "contact": "Contact",
+      "resume": "Resume"
     },
     "actions": {
-      "getInTouch": "Get In Touch",
       "switchToLight": "Switch to Light Mode",
       "switchToDark": "Switch to Dark Mode",
       "switchToArabic": "Switch to Arabic",
@@ -20,72 +23,149 @@
   "home": {
     "name": "Mahmoud Emad",
     "subtitle": "Full Stack .NET Developer",
-    "location": "📍 Cairo, Egypt",
-    "description": "Dedicated Full Stack .NET Developer skilled in building scalable solutions using C#, .NET Core, SQL, and modern front-end tools like Angular.",
+    "location": "Cairo, Egypt",
+    "description": "I build production REST APIs and data layers in C# and ASP.NET Core. My recent work includes developing and maintaining a large-scale Hospital Information System — serving real clinical workflows across patient management, appointments, medical records, and billing — over SQL Server and Entity Framework Core.",
     "cta": {
       "getInTouch": "Get In Touch",
-      "viewWork": "View My Work"
+      "viewWork": "View My Work",
+      "resume": "Download Resume"
     },
     "avatarAlt": "Mahmoud Emad"
   },
   "about": {
     "title": "About Me",
-    "role": "Full stack developer using .NET",
-    "profile": "Full stack developer using .NET with a strong backend focus. I build clean, reliable APIs and data layers in C# and ASP.NET Core, and connect them to modern front ends when needed. I turn business workflows into working features with solid architecture, clean code, and attention to performance.",
+    "role": "Backend-Focused .NET Developer",
+    "profile": "I develop production REST APIs and backend services in C# and ASP.NET Core. My professional experience includes building and maintaining an enterprise Hospital Information System — a multi-module application serving doctors, nurses, lab technicians, pharmacists, and administrators. I work with layered architecture, repository pattern, and dependency injection to build maintainable, testable systems. I take pride in refactoring legacy code into clean, performant, and readable code that teams can sustain long-term.",
     "deliver": {
       "title": "What I Deliver",
-      "item1": "Full-stack features: API + database + UI",
-      "item2": "Clean architecture, DTOs, and validation",
-      "item3": "Secure auth with JWT and role-based access",
-      "item4": "Reliable SQL Server data models and EF Core",
-      "item5": "Performance-minded, maintainable code"
+      "item1": "REST APIs with layered architecture and dependency injection",
+      "item2": "SQL Server data models with EF Core, stored procedures, and views",
+      "item3": "JWT authentication, ASP.NET Identity, and role-based access control",
+      "item4": "SignalR real-time communication for live notifications and messaging",
+      "item5": "Production bug fixes, SQL query optimization, and code reviews"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "Enterprise software built and maintained in production",
+    "role": "Full Stack .NET Developer",
+    "company": "Hospital Information System",
+    "period": "Professional Experience",
+    "description": "I am a Full Stack .NET Developer currently developing and maintaining a large-scale Hospital Information System (HIS). I contribute across the full stack with a strong backend focus, working within a team of 4 developers following Agile methodology on Azure DevOps.",
+    "highlightsTitle": "Key Contributions",
+    "highlights": [
+      "Developed, enhanced, and maintained hundreds of REST API endpoints across 15+ enterprise healthcare modules — including Patient Management, Appointment Scheduling, Electronic Medical Records, Laboratory, Radiology, Pharmacy, Billing, Inventory, and Reporting",
+      "Built and extended ASP.NET Core Web APIs with Clean Architecture, Repository Pattern, Dependency Injection, Middleware, and DTO validation",
+      "Designed and optimized SQL Server database schemas with EF Core, stored procedures, views, functions, and triggers for complex clinical workflows",
+      "Implemented JWT authentication, ASP.NET Identity, cookie authentication, and role-based authorization across the API layer",
+      "Refactored legacy code — improved maintainability, reduced technical debt, and enhanced performance across multiple modules",
+      "Optimized SQL queries and reduced API response times through query tuning, indexing strategies, and eager loading",
+      "Integrated real-time notifications and in-app messaging using SignalR",
+      "Maintained and extended legacy ASP.NET Web Forms modules — built new pages, modified existing functionality, and fixed production bugs",
+      "Collaborated in a 4-person engineering team using Agile, Azure DevOps, Git, sprint planning, and code reviews"
+    ]
+  },
+  "architecture": {
+    "title": "System Architecture",
+    "subtitle": "How production systems are designed and structured",
+    "his": {
+      "title": "Hospital Information System Architecture",
+      "subtitle": "Enterprise layered architecture serving hundreds of clinical users",
+      "description": "The HIS backend follows a layered architecture built on ASP.NET Core. The system serves doctors, receptionists, lab technicians, pharmacists, and administrators through both Angular-based and ASP.NET Web Forms client interfaces. REST APIs handle all business operations with centralized authentication, authorization, validation, and logging middleware.",
+      "layersTitle": "Architecture Layers",
+      "layers": [
+        "Presentation Layer — Angular SPA and ASP.NET Web Forms clients consuming REST APIs",
+        "API Layer — ASP.NET Core REST controllers with JWT authentication, middleware pipeline, input validation, and exception handling",
+        "Business Layer — Encapsulates enterprise healthcare workflows: appointment rules, billing calculations, insurance validations, pharmacy inventory logic",
+        "Repository Layer — Repository pattern abstracting data access behind interfaces for testability and maintainability",
+        "Data Layer — Entity Framework Core with SQL Server, including stored procedures, views, functions, and triggers for complex reporting"
+      ],
+      "featuresTitle": "Key Architecture Decisions",
+      "features": [
+        "Layered Architecture ensures separation of concerns — each layer has a single responsibility and can be tested independently",
+        "Repository Pattern abstracts data access, enabling unit testing of business logic without touching the database",
+        "Dependency Injection across all layers makes the system configurable, testable, and loosely coupled",
+        "JWT + ASP.NET Identity provides stateless authentication with role-based access control for 10+ user roles",
+        "SignalR Hubs enable real-time communication for in-app notifications and inter-module messaging",
+        "Centralized exception handling middleware ensures consistent error responses across all API endpoints"
+      ]
+    },
+    "repairShop": {
+      "title": "Repair Shop Management — Desktop Architecture",
+      "subtitle": "Cross-platform desktop application with MVVM and SQLite",
+      "description": "The Repair Shop Management System was built as a modern cross-platform desktop application using Avalonia UI, following the MVVM pattern. The application manages the complete lifecycle of mobile repair operations — from device intake through diagnostics, repair tracking, invoicing, and delivery.",
+      "layersTitle": "Architecture Layers",
+      "layers": [
+        "Presentation Layer — Avalonia UI with XAML views, data templates, and styled controls for a native-feeling interface",
+        "ViewModel Layer — MVVM ViewModels with ObservableObject, RelayCommand, and INotifyDataErrorInfo for validation",
+        "Business Services Layer — Encapsulates domain logic for customer management, repair workflows, inventory tracking, and billing",
+        "Data Access Layer — Dapper micro-ORM for lightweight, high-performance data access with raw SQL and parameterized queries",
+        "Data Layer — SQLite embedded database for portability and zero-configuration deployment"
+      ],
+      "featuresTitle": "Key Architecture Decisions",
+      "features": [
+        "MVVM pattern enables clean separation between UI and business logic — ViewModels are fully unit-testable",
+        "Avalonia UI chosen over WPF for cross-platform support (Windows, Linux, macOS) with modern XAML",
+        "Dapper selected over EF Core for desktop use — minimal overhead, full SQL control, faster startup",
+        "SQLite embedded database eliminates server dependencies — the app runs standalone on any machine",
+        "Service layer separates business rules from data access, making the system maintainable and extensible"
+      ]
     }
   },
   "skills": {
     "title": "Skills & Technologies",
-    "categories": {
-      "programming": "Programming Languages",
-      "frameworks": "Frameworks & Libraries",
-      "desktop": "Desktop & UI",
-      "tools": "Tools & Databases",
-      "methodologies": "Methodologies"
-    },
-    "items": {
-      "agile": "Agile Development",
-      "oop": "Object-Oriented Programming",
-      "testingBasics": "Software Testing Basics",
-      "rdbms": "Relational Database Management"
-    }
+    "backend": "Backend",
+    "architecture": "Architecture & Design",
+    "frontend": "Frontend",
+    "desktop": "Desktop",
+    "databases": "Databases",
+    "devops": "DevOps",
+    "cloud": "Cloud",
+    "tools": "Tools & Platforms",
+    "practices": "Engineering Practices",
+    "learning": "Currently Learning",
+    "backendItems": ["C#", "ASP.NET Core", "ASP.NET Web API", "ASP.NET MVC", "ASP.NET Web Forms", "LINQ", "Middleware", "Dependency Injection"],
+    "architectureItems": ["Layered Architecture", "Clean Architecture", "N-Tier Architecture", "Repository Pattern", "REST API Design", "DTO & Validation", "MVVM"],
+    "frontendItems": ["Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "Bootstrap", "Responsive Design"],
+    "desktopItems": ["Avalonia UI", "XAML", "MVVM", "Windows Forms"],
+    "databasesItems": ["SQL Server", "Entity Framework Core", "Dapper", "SQLite", "LINQ", "Stored Procedures", "Query Optimization"],
+    "devopsItems": ["Azure DevOps", "Git", "CI/CD"],
+    "cloudItems": ["Azure"],
+    "toolsItems": ["Visual Studio", "VS Code", "SSMS", "Postman"],
+    "practicesItems": ["Agile / Scrum", "OOP", "Code Reviews", "Refactoring", "Performance Optimization"],
+    "learningItems": ["Microservices", "Docker", "RabbitMQ", "Redis", "gRPC", "Kubernetes", "Azure", "CI/CD"]
   },
   "projects": {
-    "title": "Featured Projects",
-    "subtitle": "A showcase of my development work and technical expertise",
+    "title": "Projects",
+    "subtitle": "Production systems, desktop applications, and APIs I have built",
     "filters": {
-      "all": "All Projects",
-      "web": "Web Apps",
-      "api": "APIs",
+      "all": "All",
+      "featured": "Featured",
+      "web": "Web",
+      "api": "API",
       "desktop": "Desktop",
       "other": "Other"
     },
-    "featured": "Featured",
+    "featured": "Featured Project",
     "buttons": {
-      "github": "GitHub",
+      "github": "View Code",
       "liveDemo": "Live Demo",
       "readMore": "Read more",
-      "readLess": "Show less"
+      "readLess": "Show less",
+      "viewCaseStudy": "View Case Study"
+    },
+    "more": {
+      "text": "Want to see more?",
+      "viewAll": "View All on GitHub"
     },
     "empty": {
       "title": "No projects found",
       "subtitle": "No projects match the selected category."
-    },
-    "more": {
-      "text": "More projects coming soon as I continue my development journey!",
-      "viewAll": "View All Repositories"
     }
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "Let's connect! I'm always interested in discussing new opportunities, collaborations, or just having a chat about technology.",
+    "subtitle": "I'm actively looking for new opportunities. If you have a backend or full-stack .NET role, I'd like to hear about it.",
     "labels": {
       "email": "Email",
       "location": "Location",
@@ -107,7 +187,7 @@
       },
       "content": {
         "label": "Message",
-        "placeholder": "Tell me about your project, idea, or opportunity...",
+        "placeholder": "Tell me about the role, your team, or the problem you're solving...",
         "required": "Please enter your message.",
         "minLength": "Please write at least 20 characters."
       },
@@ -117,25 +197,196 @@
       "error": "Something went wrong while sending the message. Please try again.",
       "configMissing": "Email sending is not configured yet."
     },
+    "resume": "Download My Resume",
     "social": {
-      "title": "Connect With Me",
-      "github": {
-        "title": "GitHub",
-        "text": "Check out my repositories"
-      },
-      "linkedin": {
-        "title": "LinkedIn",
-        "text": "Let's connect professionally"
-      }
-    },
-    "cta": {
-      "sendEmail": "Send Me an Email"
+      "title": "Find Me Online",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
     }
   },
   "footer": {
-    "text": "© 2026 Mahmoud Emad. Built with Angular and passion."
+    "text": "Built with Angular by Mahmoud Emad",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "resume": "Resume"
+  },
+  "caseStudy": {
+    "title": "Enterprise Case Study",
+    "subtitle": "Hospital Information System — A technical deep dive into engineering decisions, architecture, and lessons learned from building production healthcare software",
+    "overview": {
+      "title": "Overview",
+      "body": "A Hospital Information System (HIS) is an enterprise platform that digitizes and streamlines clinical and administrative workflows across a healthcare organization. It supports modules such as Patient Management, Appointment Scheduling, Electronic Medical Records, Laboratory, Radiology, Pharmacy, Billing, Insurance, Inventory, and Reporting. The system must handle sensitive patient data, support concurrent users across departments, and maintain high availability and performance. This case study examines the engineering approach behind one such system — focusing on architecture, design decisions, and the practical realities of building and maintaining enterprise healthcare software."
+    },
+    "role": {
+      "title": "My Role",
+      "body": "I contributed as a Full Stack .NET Developer within a team of 4 engineers working on an enterprise HIS product. My responsibilities included:",
+      "items": [
+        "Enhancing existing modules and extending functionality across 15+ healthcare workflows",
+        "Developing and maintaining REST APIs in ASP.NET Core with layered architecture",
+        "Refactoring legacy ASP.NET Web Forms and backend code for improved maintainability",
+        "Implementing new business features requested by clinical and administrative stakeholders",
+        "Optimizing SQL Server queries, indexing strategies, and EF Core data access patterns",
+        "Integrating SignalR for real-time notifications and in-app messaging",
+        "Strengthening authentication with JWT, ASP.NET Identity, and role-based authorization",
+        "Fixing production bugs, troubleshooting performance issues, and providing production support",
+        "Collaborating in Agile ceremonies, sprint planning, code reviews, and Azure DevOps task tracking"
+      ]
+    },
+    "challenges": {
+      "title": "Business Challenges",
+      "body": "Building and maintaining an enterprise HIS presents several non-trivial software engineering challenges:",
+      "items": [
+        {
+          "title": "Legacy Coexistence",
+          "body": "New REST APIs and Angular frontends needed to coexist with legacy ASP.NET Web Forms modules during a gradual migration, requiring careful backward compatibility and shared authentication."
+        },
+        {
+          "title": "Interconnected Workflows",
+          "body": "Clinical workflows span multiple modules — a single patient visit triggers appointments, lab orders, radiology requests, pharmacy dispensing, billing, and insurance claims. Each module must remain consistent and transactionally sound."
+        },
+        {
+          "title": "Data Sensitivity",
+          "body": "Healthcare data demands strict access control, audit trails, and compliance with data protection regulations. Authentication and authorization must be robust across every API endpoint."
+        },
+        {
+          "title": "Performance at Scale",
+          "body": "With hundreds of concurrent users across departments, SQL Server queries, API response times, and real-time notifications must remain performant under load."
+        },
+        {
+          "title": "Evolving Requirements",
+          "body": "Healthcare regulations, billing rules, and clinical workflows change frequently. The system must be maintainable and extensible without requiring rewrites."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Engineering Approach",
+      "body": "These challenges were addressed through a combination of architectural patterns, consistent engineering practices, and pragmatic decision-making:",
+      "items": [
+        "Layered Architecture — Separation of concerns across Presentation, API, Business, Repository, and Data layers ensures each layer has a single responsibility and can evolve independently.",
+        "Repository Pattern — Abstracts data access behind interfaces, enabling unit testing of business logic without touching the database and making data access swappable.",
+        "Dependency Injection — Built into ASP.NET Core natively, DI ensures all cross-cutting concerns (logging, validation, authentication) are centrally configured and loosely coupled.",
+        "Entity Framework Core — Used as the primary ORM with code-first migrations, eager loading, and compiled queries for predictable database interactions.",
+        "SQL Server — Selected for its mature feature set including stored procedures, views, functions, triggers, and full-text search for complex healthcare reporting.",
+        "DTO Mapping — AutoMapper maps between domain entities and API DTOs, preventing over-exposure of internal data shapes and decoupling API contracts from the data layer.",
+        "Validation & Middleware — FluentValidation for input validation, centralized middleware for authentication, logging, exception handling, and response standardization.",
+        "JWT + ASP.NET Identity — Stateless authentication with JWT tokens, combined with ASP.NET Identity for user management, role-based claims, and refresh token flows.",
+        "SignalR — WebSocket-based real-time communication for in-app notifications, inter-module messaging, and live dashboard updates without polling."
+      ]
+    },
+    "architecture": {
+      "title": "System Architecture",
+      "subtitle": "How the system is structured and how requests flow through it"
+    },
+    "contributions": {
+      "title": "My Contributions",
+      "items": [
+        "Extended and maintained 100+ REST API endpoints supporting clinical workflows across patient management, appointments, lab, radiology, pharmacy, billing, and reporting modules.",
+        "Refactored legacy backend code — extracting business logic into dedicated services, replacing inline SQL with EF Core queries, and introducing DTOs to decouple API contracts from data models.",
+        "Optimized SQL Server performance — identifying and fixing N+1 query problems, adding covering indexes, rewriting expensive stored procedures, and reducing API response times.",
+        "Implemented real-time notifications using SignalR hubs — enabling instant in-app alerts for appointment reminders, lab result readiness, and inter-department messaging.",
+        "Strengthened authentication infrastructure — extending JWT token validation middleware, implementing role-based authorization policies, and integrating cookie authentication for legacy Web Forms modules.",
+        "Designed and implemented business rule engines for billing calculations, insurance eligibility validation, and pharmacy inventory threshold alerts.",
+        "Reduced technical debt by refactoring tightly coupled modules into service-oriented components with dependency injection, improving testability and maintainability.",
+        "Participated in Agile development — Azure DevOps sprint planning, task estimation, Git feature branching, pull request reviews, and production deployment coordination."
+      ]
+    },
+    "tech": {
+      "title": "Technologies Used",
+      "groups": {
+        "backend": "Backend",
+        "architecture": "Architecture & Patterns",
+        "database": "Database",
+        "auth": "Authentication & Security",
+        "realtime": "Real-Time Communication",
+        "tools": "Development & DevOps"
+      },
+      "backendItems": ["C#", "ASP.NET Core", "ASP.NET Web API", "ASP.NET MVC", "ASP.NET Web Forms"],
+      "architectureItems": ["Layered Architecture", "Repository Pattern", "Dependency Injection", "Middleware Pipeline", "DTO Mapping"],
+      "databaseItems": ["SQL Server", "Entity Framework Core", "LINQ", "Stored Procedures", "Views & Functions"],
+      "authItems": ["JWT", "ASP.NET Identity", "Role-Based Authorization", "Cookie Authentication"],
+      "realtimeItems": ["SignalR", "WebSocket Transport", "Hub Pattern"],
+      "toolsItems": ["Visual Studio", "Azure DevOps", "Git", "SSMS", "Postman"]
+    },
+    "decisions": {
+      "title": "Engineering Decisions",
+      "items": [
+        {
+          "title": "Why Layered Architecture?",
+          "body": "Layered architecture was chosen over Clean Architecture or Vertical Slices because the existing codebase was already structured in layers. Introducing a new architecture would have required a full rewrite. Instead, we enforced layer boundaries through namespace conventions, dependency injection registration, and code review guidelines. This provided immediate benefits — testability, separation of concerns, and independent evolution of layers — without the disruption of a full architectural migration."
+        },
+        {
+          "title": "Why Repository Pattern?",
+          "body": "The Repository Pattern was already partially present in the legacy codebase. We standardized it across all modules to abstract EF Core DbContext behind interfaces. This made unit testing business logic possible without a real database and allowed us to swap ORM implementations in specific modules where Dapper was more appropriate (e.g., high-throughput reporting). The trade-off is additional boilerplate, but the testability gains justified the cost."
+        },
+        {
+          "title": "Why Entity Framework Core?",
+          "body": "EF Core was chosen for its productivity benefits — code-first migrations, change tracking, LINQ querying, and eager loading. For an enterprise application with complex entity relationships (patients, visits, orders, results, billing), EF Core's abstraction layer reduces boilerplate and enforces consistency. Where raw performance was critical, we fell back to Dapper for specific read-heavy queries."
+        },
+        {
+          "title": "Why SQL Server?",
+          "body": "SQL Server was already the established database platform. Its mature feature set — transactional replication, full-text search, CLR integration, Reporting Services — made it well-suited for healthcare reporting and complex data queries. The decision to stay with SQL Server rather than migrating was a pragmatic one: the cost of migration outweighed any marginal benefits of alternative databases for this workload."
+        },
+        {
+          "title": "Why SignalR?",
+          "body": "SignalR was chosen for real-time communication because it integrates natively with ASP.NET Core, handles WebSocket fallback automatically, and requires minimal infrastructure compared to dedicated message brokers. For use cases like appointment reminders, lab result notifications, and dashboard updates, SignalR provided immediate value without adding architectural complexity."
+        },
+        {
+          "title": "Why Dependency Injection?",
+          "body": "ASP.NET Core's built-in DI container made it natural to register all services, repositories, and middleware as constructor-injected dependencies. This eliminated tightly coupled service instantiation, made the dependency graph explicit, and simplified unit testing. The main trade-off is increased startup complexity, but the long-term maintainability benefits far outweigh this."
+        },
+        {
+          "title": "Why Middleware?",
+          "body": "Centralized middleware for authentication, logging, exception handling, and response standardization ensured consistent behavior across all API endpoints. Instead of repeating cross-cutting concern code in every controller, middleware handled it once in the request pipeline. This reduced bugs, simplified controller logic, and made it easy to add new cross-cutting behavior (e.g., request timing, audit logging) without touching individual endpoints."
+        }
+      ]
+    },
+    "learned": {
+      "title": "What I Learned in Enterprise Development",
+      "cards": [
+        {
+          "title": "Working with Legacy Systems",
+          "body": "Enterprise software rarely starts from scratch. I learned to extend and maintain existing codebases while preserving production stability and business continuity — reading unfamiliar code, understanding undocumented business rules, and making safe, incremental changes."
+        },
+        {
+          "title": "Refactoring with Confidence",
+          "body": "I learned to refactor legacy code into cleaner abstractions without changing business behavior. This requires a deep understanding of the domain, comprehensive testing strategies, and the discipline to make small, reversible changes rather than big rewrites."
+        },
+        {
+          "title": "Designing Maintainable Software",
+          "body": "Working within a layered architecture taught me the practical value of separation of concerns. Repository Pattern, Dependency Injection, DTOs, Middleware, and validation are not academic concepts — they are tools that make enterprise software sustainable as it grows."
+        },
+        {
+          "title": "Enterprise Collaboration",
+          "body": "Building production software in a team of 4 required communication, code reviews, task tracking, and shared ownership. I experienced firsthand how Agile ceremonies, Azure DevOps workflows, and Git branching strategies keep a team aligned and productive."
+        },
+        {
+          "title": "Building Reliable APIs",
+          "body": "I internalized the importance of validation, authentication, authorization, exception handling, logging, and performance optimization — not as optional extras, but as fundamental requirements for any API that handles sensitive healthcare data."
+        },
+        {
+          "title": "Thinking Beyond Code",
+          "body": "The most important lesson was that enterprise software is about solving business problems, supporting real users, reducing operational overhead, and building systems that can evolve over years. Technical decisions must be justified by business value, not engineering preference."
+        }
+      ]
+    },
+    "takeaways": {
+      "title": "Key Takeaways",
+      "body": "Working on an enterprise Hospital Information System strengthened my understanding of:",
+      "items": [
+        "Enterprise backend development — building production APIs that serve real clinical workflows across multiple departments and user roles",
+        "Software architecture — applying layered architecture, repository pattern, DI, and middleware to create maintainable, testable systems",
+        "REST API design — designing consistent, versioned, well-documented APIs with proper validation, error handling, and security",
+        "SQL Server optimization — writing efficient queries, designing performant schemas, and diagnosing performance bottlenecks",
+        "Team collaboration — working within Agile teams, participating in code reviews, and sharing ownership of production code",
+        "Production support — troubleshooting production issues, fixing bugs under pressure, and maintaining system reliability",
+        "Maintainable code — refactoring legacy code, reducing technical debt, and writing code that future developers can understand",
+        "Scalable systems — designing for growth with stateless APIs, efficient data access, and real-time communication patterns",
+        "Engineering decision-making — making pragmatic trade-offs between ideal architecture and real-world constraints"
+      ],
+      "conclusion": "This experience gave me genuine production exposure to enterprise software development — not just writing code, but maintaining, extending, and improving a system that directly impacts patient care and clinical operations."
+    }
   },
   "whatsapp": {
-    "label": "Contact with me"
+    "label": "Chat with me"
   }
 }

@@ -1,0 +1,480 @@
+.case-study {
+  padding: 5rem 0;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(var(--primary-rgb), 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(var(--accent-rgb), 0.03) 0%, transparent 50%),
+    var(--bg-primary);
+  position: relative;
+}
+
+.case-study-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cs-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.cs-section {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.25rem 2.5rem;
+  backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease;
+}
+
+.cs-section:hover {
+  box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+.cs-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(var(--primary-rgb), 0.15);
+  position: relative;
+}
+
+.cs-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: 1px;
+}
+
+.cs-subheading {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: -0.5rem 0 1.5rem;
+  font-style: italic;
+}
+
+.cs-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.cs-body:last-child {
+  margin-bottom: 0;
+}
+
+.cs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs-list li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.5rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.cs-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  flex-shrink: 0;
+}
+
+.cs-list-compact li {
+  padding: 0.35rem 0 0.35rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Challenges */
+.cs-challenges {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.cs-challenge-card {
+  background: rgba(var(--primary-rgb), 0.04);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cs-challenge-card:hover {
+  background: rgba(var(--primary-rgb), 0.07);
+  border-color: rgba(var(--primary-rgb), 0.2);
+  transform: translateX(4px);
+}
+
+.cs-challenge-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 0.4rem;
+}
+
+.cs-challenge-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Architecture diagram — reuse same styles as architecture component */
+.arch-diagram {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.diagram-layer {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.diagram-layer.top {
+  border-color: rgba(var(--accent-rgb), 0.3);
+}
+
+.diagram-layer.bottom {
+  background: rgba(var(--accent-rgb), 0.08);
+  border-color: rgba(var(--accent-rgb), 0.3);
+}
+
+.layer-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.diagram-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.diagram-node {
+  display: inline-flex;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+.diagram-node.highlight {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  color: var(--primary-color);
+}
+
+.diagram-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+  margin-top: 0.4rem;
+}
+
+.diagram-tag {
+  display: inline-flex;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  border-radius: 4px;
+  color: var(--accent-color);
+}
+
+.diagram-arrow {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+/* Architecture notes */
+.cs-arch-notes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cs-note {
+  background: rgba(var(--primary-rgb), 0.03);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  padding: 0.9rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.cs-note strong {
+  color: var(--primary-color);
+}
+
+/* Tech grid */
+.cs-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.cs-tech-group {
+  background: rgba(var(--primary-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-rgb), 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.cs-tech-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary-color);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.cs-tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cs-tech-item {
+  display: inline-flex;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+/* Engineering decisions — details/summary */
+.cs-decisions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.cs-decision {
+  background: rgba(var(--primary-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-rgb), 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cs-decision[open] {
+  background: rgba(var(--primary-rgb), 0.06);
+  border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.cs-decision-summary {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+  list-style: none;
+}
+
+.cs-decision-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cs-decision-summary::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.cs-decision[open] .cs-decision-summary::before {
+  content: "−";
+}
+
+.cs-decision-body {
+  padding: 0 1.25rem 1.25rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+/* Learned cards grid */
+.cs-learned-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.cs-learned-card {
+  background: rgba(var(--primary-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-rgb), 0.08);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cs-learned-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  border-color: rgba(var(--primary-rgb), 0.2);
+  background: rgba(var(--primary-rgb), 0.06);
+}
+
+.cs-learned-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.cs-learned-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cs-learned-body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Conclusion */
+.cs-conclusion {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), rgba(var(--accent-rgb), 0.05));
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .case-study {
+    padding: 3rem 0;
+  }
+
+  .cs-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cs-heading {
+    font-size: 1.2rem;
+  }
+
+  .cs-tech-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cs-learned-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagram-layer {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .diagram-node {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-section {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .cs-tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-challenge-card {
+    padding: 1rem;
+  }
+}
