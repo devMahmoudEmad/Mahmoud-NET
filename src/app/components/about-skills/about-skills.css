@@ -87,7 +87,7 @@
   gap: 1.25rem;
 }
 
-.skill-group {
+.skill-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
@@ -95,7 +95,7 @@
   transition: box-shadow 0.3s ease;
 }
 
-.skill-group:hover {
+.skill-card:hover {
   box-shadow: 0 4px 16px var(--shadow-color);
 }
 
@@ -104,19 +104,17 @@
   background: linear-gradient(135deg, var(--glass-bg), rgba(var(--accent-rgb), 0.04));
 }
 
-.skill-group-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  margin: 0 0 0.75rem;
+.skill-card-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--border-color);
+  margin-block-end: 0.75rem;
 }
 
-.skill-learning .skill-group-title {
-  color: var(--accent-color);
+.skill-learning .skill-card-header {
+  border-color: rgba(var(--accent-rgb), 0.15);
 }
 
 .skill-icon {
@@ -124,15 +122,30 @@
   width: 1.15rem;
   height: 1.15rem;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.skill-items {
+.skill-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  line-height: 1.3;
+}
+
+.skill-learning .skill-card-title {
+  color: var(--accent-color);
+}
+
+.skill-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
 
-.skill-badge {
+.skill-chip {
   display: inline-flex;
   padding: 0.25rem 0.65rem;
   font-size: 0.8rem;
@@ -144,21 +157,21 @@
   transition: all 0.2s ease;
 }
 
-.skill-badge:hover {
+.skill-chip:hover {
   background: var(--gradient-primary);
   color: white;
   border-color: transparent;
   transform: translateY(-2px);
 }
 
-.skill-learning .skill-badge {
+.skill-learning .skill-chip {
   background: rgba(var(--accent-rgb), 0.08);
   border-color: rgba(var(--accent-rgb), 0.15);
   color: var(--text-secondary);
   font-style: italic;
 }
 
-.skill-learning .skill-badge:hover {
+.skill-learning .skill-chip:hover {
   background: var(--gradient-accent);
   color: white;
 }

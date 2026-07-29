@@ -21,7 +21,7 @@ export class AboutSkillsComponent {
   private translate = inject(TranslateService);
 
   skillGroups: SkillGroup[] = [
-    { key: 'backend', titleKey: 'skills.backend', itemsKey: 'skills.backendItems', icon: 'server' },
+    { key: 'backend', titleKey: 'skills.backend', itemsKey: 'skills.backendItems', icon: 'dns' },
     { key: 'architecture', titleKey: 'skills.architecture', itemsKey: 'skills.architectureItems', icon: 'account_tree' },
     { key: 'frontend', titleKey: 'skills.frontend', itemsKey: 'skills.frontendItems', icon: 'web' },
     { key: 'desktop', titleKey: 'skills.desktop', itemsKey: 'skills.desktopItems', icon: 'desktop_windows' },

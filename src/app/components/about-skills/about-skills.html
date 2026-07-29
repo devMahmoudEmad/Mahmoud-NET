@@ -19,13 +19,13 @@
         </div>
       </div>
       <div class="skills-column">
-        <div class="skill-group" *ngFor="let group of skillGroups" [class.skill-learning]="group.learning">
-          <h4 class="skill-group-title">
-            <span class="skill-icon material-symbols-outlined">{{ group.icon }}</span>
-            {{ group.titleKey | translate }}
-          </h4>
-          <div class="skill-items">
-            <span class="skill-badge" *ngFor="let item of getGroupItems(group)">{{ item }}</span>
+        <div class="skill-card" *ngFor="let group of skillGroups" [class.skill-learning]="group.learning">
+          <div class="skill-card-header">
+            <span class="skill-icon material-symbols-outlined" aria-hidden="true">{{ group.icon }}</span>
+            <span class="skill-card-title">{{ group.titleKey | translate }}</span>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip" *ngFor="let item of getGroupItems(group)">{{ item }}</span>
           </div>
         </div>
       </div>
